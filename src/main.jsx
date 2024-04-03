@@ -8,7 +8,7 @@ import { Start, Home } from './Pages/page.js'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: 'https://akashtwt.vercel.app/',
     element: <App />,
     children: [
       {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/start",
+        path: "https://akashtwt.vercel.app//start",
         element: <Start />
       }
     ]
