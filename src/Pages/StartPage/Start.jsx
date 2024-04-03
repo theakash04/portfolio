@@ -10,8 +10,8 @@ import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 function Start() {
 
   return (
-    <>
-      <div className="flex w-full h-full justify-center items-center">
+    <div className="w-screen h-screen bg-[#ced4da] px-2">
+      <div className="flex w-full overflow-auto py-10 items-center justify-center">
         <div className="w-[780px] flex items-center flex-col justify-center relative">
           <div>
             <img src={cover} className="w-full rounded-md shadow-sm" />
@@ -45,7 +45,7 @@ function Start() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
