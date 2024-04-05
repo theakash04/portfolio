@@ -52,8 +52,6 @@ function Start() {
     },
   ]
 
-  const colgrid = skills.length;
-
 
   return (
     <div className="w-screen h-screen bg-[#ced4da] px-2">
@@ -92,7 +90,7 @@ function Start() {
 
           <div className="py-8 flex gap-3 flex-col w-full items-center"> 
               <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
-              <div className={`grid py-3 sm:grid-cols-${colgrid} grid-cols-5 px-3 gap-3`}>
+              <div className={`grid py-3 sm:flex grid-cols-5 px-3 gap-3`}>
                 {skills.map((skill, index) => (
                   <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer "/>
                 ))}
