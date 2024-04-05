@@ -9,6 +9,52 @@ import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
 function Start() {
 
+  const skills = [
+    {
+      skill: "https://skillicons.dev/icons?i=html",
+      name: "html5"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=css",
+      name: "css3"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=js",
+      name: "javascript"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=react",
+      name: "react"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=tailwind",
+      name: "tailwind"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=redux",
+      name: "redux"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=git",
+      name: "git"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=linux",
+      name: "linux"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=appwrite",
+      name: "Appwrite"
+    },
+    {
+      skill: "https://skillicons.dev/icons?i=c",
+      name: "c"
+    },
+  ]
+
+  const colgrid = skills.length;
+
+
   return (
     <div className="w-screen h-screen bg-[#ced4da] px-2">
       <div className="flex w-full overflow-auto py-10 items-center justify-center">
@@ -42,6 +88,15 @@ function Start() {
             <Link to={"https://www.instagram.com/theakash04/"} target="_blank">
               <Button variant="outlined" size="large" endIcon={<SendRoundedIcon />}>Message</Button>
             </Link>
+          </div>
+
+          <div className="py-8 flex gap-3 flex-col w-full items-center"> 
+              <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
+              <div className={`grid py-3 sm:grid-cols-${colgrid} grid-cols-5 px-3 gap-3`}>
+                {skills.map((skill, index) => (
+                  <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer "/>
+                ))}
+              </div>
           </div>
         </div>
       </div>
