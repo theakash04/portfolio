@@ -47,6 +47,10 @@ function Start() {
       name: "Appwrite"
     },
     {
+      skill: "https://skillicons.dev/icons?i=materialui",
+      name: "material UI"
+    },
+    {
       skill: "https://skillicons.dev/icons?i=c",
       name: "c"
     },
@@ -92,7 +96,7 @@ function Start() {
               <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
               <div className={`py-3 flex flex-wrap px-5 w-full items-center justify-center gap-3`}>
                 {skills.map((skill, index) => (
-                  <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md" width={60}/>
+                  <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md" />
                 ))}
               </div>
           </div>
