@@ -94,10 +94,12 @@ function Start() {
 
           <div className="py-10 flex gap-3 flex-col w-full items-center"> 
               <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
-              <div className={`py-3 flex flex-wrap px-5 w-full items-center justify-center gap-3`}>
-                {skills.map((skill, index) => (
-                  <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md" />
-                ))}
+              <div className="w-full flex items-center justify-center">
+                <div className={`py-3 flex flex-wrap items-center gap-3 px-3`}>
+                  {skills.map((skill, index) => (
+                    <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md" />
+                  ))}
+                </div>
               </div>
           </div>
         </div>
