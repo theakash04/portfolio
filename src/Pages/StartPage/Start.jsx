@@ -87,7 +87,7 @@ function Start() {
                 Visit me
               </Button>
             </Link>
-            <Link to={"https://www.instagram.com/theakash04/"} target="_blank">
+            <Link to={"https://x.com/theakash04/"} target="_blank">
               <Button variant="outlined" size="large" endIcon={<SendRoundedIcon />}>Message</Button>
             </Link>
           </div>
