@@ -1,61 +1,61 @@
 import React from "react";
 import cover from "../../assets/cover.png";
 import Avatar from "@mui/material/Avatar";
-import Profile from "../../assets/Avtar.webp";
+// import DefProfile from "../../assets/Avtar.webp";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import SendRoundedIcon from '@mui/icons-material/SendRounded';
-import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 
 function Start() {
+  const Profile = "https://avatars.githubusercontent.com/u/146631447?v=4";
 
   const skills = [
     {
       skill: "https://skillicons.dev/icons?i=html",
-      name: "html5"
+      name: "html5",
     },
     {
       skill: "https://skillicons.dev/icons?i=css",
-      name: "css3"
+      name: "css3",
     },
     {
       skill: "https://skillicons.dev/icons?i=js",
-      name: "javascript"
+      name: "javascript",
     },
     {
       skill: "https://skillicons.dev/icons?i=react",
-      name: "react"
+      name: "react",
     },
     {
       skill: "https://skillicons.dev/icons?i=tailwind",
-      name: "tailwind"
+      name: "tailwind",
     },
     {
       skill: "https://skillicons.dev/icons?i=redux",
-      name: "redux"
+      name: "redux",
     },
     {
       skill: "https://skillicons.dev/icons?i=git",
-      name: "git"
+      name: "git",
     },
     {
       skill: "https://skillicons.dev/icons?i=linux",
-      name: "linux"
+      name: "linux",
     },
     {
       skill: "https://skillicons.dev/icons?i=appwrite",
-      name: "Appwrite"
+      name: "Appwrite",
     },
     {
       skill: "https://skillicons.dev/icons?i=materialui",
-      name: "material UI"
+      name: "material UI",
     },
     {
       skill: "https://skillicons.dev/icons?i=c",
-      name: "c"
+      name: "c",
     },
-  ]
-
+  ];
 
   return (
     <div className="w-screen h-screen bg-[#ced4da] px-2">
@@ -82,25 +82,41 @@ function Start() {
           </div>
 
           <div className="flex gap-7 pt-5">
-            <Link to={"https://dexdevs.vercel.app/"} target="_blank">
-              <Button variant="contained" size="large" startIcon={<AutoFixHighIcon />}>
+            <Link to={"/"}>
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<AutoFixHighIcon />}
+              >
                 Visit me
               </Button>
             </Link>
             <Link to={"https://www.twitter.com/theakash04/"} target="_blank">
-              <Button variant="outlined" size="large" endIcon={<SendRoundedIcon />}>Message</Button>
+              <Button
+                variant="outlined"
+                size="large"
+                endIcon={<SendRoundedIcon />}
+              >
+                Message
+              </Button>
             </Link>
           </div>
 
-          <div className="py-10 flex gap-3 flex-col w-full items-center"> 
-              <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
-              <div className="w-full flex items-center justify-center">
-                <div className={`py-3 flex flex-wrap items-center gap-3 px-3`}>
-                  {skills.map((skill, index) => (
-                    <img key={index} src={skill.skill} alt={skill.name} title={skill.name} className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md" />
-                  ))}
-                </div>
+          <div className="py-10 flex gap-3 flex-col w-full items-center">
+            <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
+            <div className="w-full flex items-center justify-center">
+              <div className={`py-3 flex flex-wrap items-center gap-3 px-3`}>
+                {skills.map((skill, index) => (
+                  <img
+                    key={index}
+                    src={skill.skill}
+                    alt={skill.name}
+                    title={skill.name}
+                    className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md"
+                  />
+                ))}
               </div>
+            </div>
           </div>
         </div>
       </div>
