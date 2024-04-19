@@ -4,12 +4,17 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'  
 import { Start, Home, ErrorPage } from './Pages/page.js'
+import { githubInfoLoader } from './components/GithubApi.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='' element={<Home />} />
-      <Route path='start' element={<Start />}/>
+      <Route 
+        loader={githubInfoLoader}
+        path='start' 
+        element={<Start />}
+      />
       <Route path='*' element={<ErrorPage />}/>
     </Route>
   )

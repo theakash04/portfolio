@@ -1,15 +1,14 @@
 import React from "react";
 import cover from "../../assets/cover.png";
 import Avatar from "@mui/material/Avatar";
-// import DefProfile from "../../assets/Avtar.webp";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 
 function Start() {
-  const Profile = "https://avatars.githubusercontent.com/u/146631447?v=4";
-
+  const data = useLoaderData();
+  
   const skills = [
     {
       skill: "https://skillicons.dev/icons?i=html",
@@ -68,7 +67,7 @@ function Start() {
           <div className="w-full h-12 flex items-center justify-center">
             <Avatar
               alt="Remy Sharp"
-              src={Profile}
+              src={data.avatar_url}
               sx={{ width: 100, height: 100 }}
               className="sm:-top-10 shadow-md"
             />
@@ -76,7 +75,7 @@ function Start() {
 
           <div className="w-full pt-8 sm:pt-0">
             <span className="flex flex-col items-center justify-center">
-              <p className="pt-3 font-bold text-3xl">Akash kumar</p>
+              <p className="pt-3 font-bold text-3xl">{data.name}</p>
               <p className="text-black/55 font-semibold">Frontend Developer</p>
             </span>
           </div>
