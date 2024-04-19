@@ -8,7 +8,7 @@ import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 
 function Start() {
   const data = useLoaderData();
-  
+
   const skills = [
     {
       skill: "https://skillicons.dev/icons?i=html",
@@ -85,7 +85,6 @@ function Start() {
               <Button
                 variant="contained"
                 size="large"
-                startIcon={<AutoFixHighIcon />}
               >
                 Visit me
               </Button>
