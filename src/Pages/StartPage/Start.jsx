@@ -57,7 +57,7 @@ function Start() {
   ];
 
   return (
-    <div className="w-screen h-screen bg-[#ced4da] px-2">
+    <div className="w-screen px-2">
       <div className="flex w-full overflow-auto py-5 items-center justify-center">
         <div className="w-[780px] flex items-center flex-col justify-center relative">
           <div>
@@ -102,15 +102,15 @@ function Start() {
 
           <div className="py-10 flex gap-3 flex-col w-full items-center">
             <p className="font-bold text-2xl">Tech stack 🧑‍💻</p>
-            <div className="w-full flex items-center justify-center">
-              <div className={`py-3 flex flex-wrap items-center gap-3 px-3`}>
+            <div className="w-full flex item-center justify-center">
+              <div className={`py-3 flex flex-wrap items-center justify-center gap-3 px-3`}>
                 {skills.map((skill, index) => (
                   <img
                     key={index}
                     src={skill.skill}
                     alt={skill.name}
                     title={skill.name}
-                    className="hover:scale-110 transition-all cursor-pointer filter hover:drop-shadow-md"
+                    className="transition-all cursor-pointer filter hover:drop-shadow-md hover:-translate-y-2"
                   />
                 ))}
               </div>
