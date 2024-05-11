@@ -76,7 +76,7 @@ function Start() {
           <div className="w-full pt-8 sm:pt-0">
             <span className="flex flex-col items-center justify-center">
               <p className="pt-3 font-bold text-3xl">{data.name}</p>
-              <p className="text-black/55 font-semibold">Frontend Developer</p>
+              <p className="text-black/55 font-semibold">Developer</p>
             </span>
           </div>
 
