@@ -54,6 +54,10 @@ function Start() {
       skill: "https://skillicons.dev/icons?i=c",
       name: "c",
     },
+    {
+      skill: "https://skillicons.dev/icons?i=mongodb",
+      name: "Mongo DB",
+    },
   ];
 
   return (
