@@ -6,15 +6,15 @@ import Button from '@mui/material/Button';
 function ErrorPage() {
   return (
     <>
-      <div className='w-screen h-screen overflow-hidden text-white'>
+      <div className='w-screen h-screen overflow-hidden text-black'>
         <div className='flex h-full items-center flex-col justify-center'>
           <div className='pb-10'>
             <img src={error} alt="Error" />
           </div>
 
-          <p className='text-5xl font-extrabold'>Opps!</p>
+          <p className='text-5xl font-extrabold'>Oops!</p>
           
-          <span className='py-7 text-center font-semibold text-white/70'>
+          <span className='py-7 text-center font-semibold text-black/70'>
             <p>We’re sorry.</p>
             <p>The page you requested could not be found.</p>
           </span>
