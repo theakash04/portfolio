@@ -68,12 +68,12 @@ function Start() {
           </div>
 
           <div className="w-full h-12 flex items-center justify-center relative">
-              <Avatar
-                alt="Remy Sharp"
-                src={data.avatar_url}
-                sx={{ width: 100, height: 100 }}
-                className="sm:-top-10 shadow-md"
-              />
+            <Avatar
+              alt="Remy Sharp"
+              src={data.avatar_url}
+              sx={{ width: 100, height: 100 }}
+              className="sm:-top-10 shadow-md"
+            />
           </div>
 
           <div className="w-full pt-8 sm:pt-0">
