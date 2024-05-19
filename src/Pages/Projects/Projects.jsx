@@ -3,7 +3,9 @@ import CommingSoon from '../../components/CommingSoon'
 
 function Projects() {
   return (
-    <CommingSoon />
+    <div>
+      <CommingSoon />
+    </div>
   )
 }
 

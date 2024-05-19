@@ -1,0 +1,11 @@
+.slider-container {
+  margin-top: 30px;
+}
+
+.slick-dots li button:before {
+  color: #007bff; /* Change dot color */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #007bff; /* Change active dot color */
+}

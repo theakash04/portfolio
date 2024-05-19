@@ -1,11 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Container, HeroSection } from "../../components/Components";
+import { Container, HeroSection, Projects, Skills } from "../../components/Components";
 
 function Home() {
   return (
     <Container>
       <HeroSection />
+      <Skills />
+      {/* <Projects /> */}
     </Container>
   );
 }

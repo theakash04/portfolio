@@ -4,12 +4,12 @@ import { Link, NavLink, useLoaderData } from 'react-router-dom'
 
 function NavBar() {
   return (
-    <div className='w-full h-20 flex items-center justify-between sm:px-10 px-5 py-5'>
+    <div className='w-full h-20 flex items-center justify-between sm:px-10 px-5 py-5 z-auto'>
       <NavLink className='' to={'/'}>
         <img src='panda.png' alt="" className='w-14'/>
       </NavLink>
       <Link to={'#'} >
-        <ButtonStyled children={"Follow me"} className="cursor-pointer" disabled/>
+        <ButtonStyled children={"Follow me"} className="cursor-pointer"/>
       </Link>
     </div>
   )
