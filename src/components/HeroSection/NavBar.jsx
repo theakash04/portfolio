@@ -8,7 +8,7 @@ function NavBar() {
       <NavLink className='' to={'/'}>
         <img src='panda.png' alt="" className='w-14'/>
       </NavLink>
-      <Link to={'#'} >
+      <Link to={'https://github.com/theakash04/'} target='blank' >
         <ButtonStyled children={"Follow me"} className="cursor-pointer"/>
       </Link>
     </div>
