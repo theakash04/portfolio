@@ -112,7 +112,7 @@ function Start() {
                     src={"./SkillsLogos/" + skill.skill}
                     alt={skill.name}
                     title={skill.name}
-                    className="transition-all cursor-pointer filter hover:drop-shadow-md hover:-translate-y-2 w-16"
+                    className="transition-all cursor-pointer filter hover:drop-shadow-md hover:-translate-y-2 w-12"
                   />
                 ))}
               </div>
