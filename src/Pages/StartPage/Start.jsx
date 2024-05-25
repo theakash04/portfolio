@@ -113,6 +113,7 @@ function Start() {
                     alt={skill.name}
                     title={skill.name}
                     className="transition-all cursor-pointer filter hover:drop-shadow-md hover:-translate-y-2 w-12"
+                    loading="lazy"
                   />
                 ))}
               </div>
