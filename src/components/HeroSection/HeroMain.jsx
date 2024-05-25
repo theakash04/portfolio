@@ -5,7 +5,7 @@ import GsapBtn from "./GsapBtn";
 
 function HeroMain() {
   return (
-    <div className="w-full px-5 pt-5 flex flex-col pb-5 relative" id="hero-main-section">
+    <div className="w-screen px-5 pt-5 flex flex-col pb-5 relative" id="hero-main-section">
       <div className="flex justify-center mb-10">
         <span className="bg-[#b2dffe] flex items-center px-3 py-1 rounded-md text-[#106ba7] font-semibold gap-2 justify-center">
           <span className="bg-green-600 w-3 h-3 rounded-full animate-pulse " />

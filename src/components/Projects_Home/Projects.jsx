@@ -7,7 +7,7 @@ function Projects() {
       <div>
         <p className='font-bold text-3xl'>Projects</p>
       </div>
-      <div className=''>
+      <div className='max-w-[1000px] w-full h-full'>
         <Crousel />
       </div>
     </div>
