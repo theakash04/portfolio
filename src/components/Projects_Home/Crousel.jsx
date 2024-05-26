@@ -22,7 +22,7 @@ function Crousel() {
   ];
 
   return (
-    <div className="bg-gray-100 w-full h-full shadow-sm">
+    <div className="w-full h-full shadow-sm">
       <Carousel className="w-full h-full">
         <CarouselContent>
           {projects.map((project, i) => (
