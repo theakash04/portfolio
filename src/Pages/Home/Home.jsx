@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  About,
   Container,
   Copyright,
   HeroSection,
@@ -12,6 +13,9 @@ function Home() {
   return (
     <Container>
       <HeroSection />
+      <div className="w-full grid place-items-center py-10">
+        <About />
+      </div>
       <Skills />
       <div className="w-full grid place-items-center">
         <Projects />

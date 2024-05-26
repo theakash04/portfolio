@@ -5,10 +5,10 @@ import TextLogo from "./TextLogo";
 
 function HeroSection() {
   return (
-    <main className={`flex relative w-screen min-h-[720px] `}>
+    <main className={`flex relative w-screen min-h-[720px]`}>
       <div className="w-full absolute flex flex-col h-max-content">
         <NavBar />
-        <div className="h-full relative">
+        <div className="relative">
           <HeroMain />
           <TextLogo text={`Student - Developer -`} />
         </div>

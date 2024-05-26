@@ -5,3 +5,13 @@
 body::-webkit-scrollbar{
   display: none;
 }
+
+@font-face {
+  font-family: 'LondrinaOutline';
+  src: url('/Fonts/LondrinaOutline-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Patrichand';
+  src: url('/Fonts/PatrickHand.ttf') format('truetype');
+}

@@ -9,6 +9,12 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    fontFamily:{
+      'londrina': ['LondrinaOutline'],
+      'mono': ['mono'],
+      'sans': ['sans'],
+      'patrick': ['PatrickHand']
+    },
     container: {
       center: true,
       padding: "2rem",

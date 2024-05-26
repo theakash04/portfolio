@@ -5,7 +5,7 @@ function TextLogo({ text }) {
   const textAr = text.split("");
 
   return (
-    <div className="flex sm:flex-row flex-col px-4 items-center justify-center gap-5 ">
+    <div className="flex sm:flex-row flex-col px-4 items-center justify-center gap-5">
       <div className="center relative w-[150px] h-[150px] rounded-full flex justify-center items-center">
         <div className="logo" />
         <div className="text">
