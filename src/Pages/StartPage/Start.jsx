@@ -57,6 +57,18 @@ function Start() {
       skill: "mongodb.svg",
       name: "Mongo DB",
     },
+    {
+      skill: "express.svg",
+      name: "Express-js"
+    },
+    {
+      skill: "nodejs.svg",
+      name: "Node-js"
+    },
+    {
+      skill: "python.svg",
+      name: "Python"
+    }
   ];
 
   return (
