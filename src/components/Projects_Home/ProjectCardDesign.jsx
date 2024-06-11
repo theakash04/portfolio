@@ -13,7 +13,7 @@ function ProjectCardDesign({ source, title, img, live, tech, about }) {
   return (
     <div className="bg-gray-100 flex justify-between items-center w-full h-full relative sm:py-0  py-5 sm:px-0 px-3 z-10">
       <div className="relative pr-20 h-full hidden sm:flex">
-        <div className="bg-[#F17115]  w-[340px] h-[340px] rounded-tr-full rounded-br-full relative overflow-hidden">
+        <div className="bg-[#F17115]  w-[340px] max-h-[430px] h-full min-h-[320px] rounded-tr-full rounded-br-full relative overflow-hidden">
           <img
             src={img}
             alt=""
