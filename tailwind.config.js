@@ -10,10 +10,7 @@ module.exports = {
   prefix: "",
   theme: {
     fontFamily:{
-      'londrina': ['LondrinaOutline'],
-      'mono': ['mono'],
-      'sans': ['sans'],
-      'patrick': ['PatrickHand']
+      'roboto': ['Roboto']
     },
     container: {
       center: true,

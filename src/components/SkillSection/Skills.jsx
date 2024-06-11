@@ -4,7 +4,7 @@ import Card from "./Card";
 function Skills() {
   const SkillSet = [
     {
-      category: "Frontend",
+      category: "Frontend 💻",
       Tech: [
         "html",
         "css",
@@ -13,25 +13,26 @@ function Skills() {
         "appwrite",
         "Redux",
         "Tailwind-Css",
+        "Vite",
       ],
     },
     {
-      category: "Backend",
-      Tech: ["Node-Js", "mongo-db", "mongoose"],
+      category: "Backend ⚙️",
+      Tech: ["Node-Js", "mongo-db", "mongoose", "Express-Js"],
     },
     {
-      category: "Languages",
-      Tech: ["C", "javascript"],
+      category: "Languages 📌",
+      Tech: ["C", "javascript", "Node-Js", "Python"],
     },
     {
-      category: "Tools",
+      category: "Tools 🛠️",
       Tech: ["Git", "Linux"],
     },
   ];
 
   return (
     <div className="w-full grid place-items-center">
-      <div className="text-3xl font-bold flex w-full items-center justify-center sm:pb-3 sm:pt-0 pt-14">
+      <div className="text-3xl font-bold flex w-full items-center justify-center sm:pb-3 sm:pt-0">
         <div className="relative group">
           <p className="text-3xl font-bold">SKILLS</p>
           <span className="w-0 h-1 bg-white transition-all ease-in-out absolute bottom-0 group-hover:w-[95px] rounded" />

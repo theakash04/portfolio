@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 
-@font-face {
-  font-family: 'LondrinaOutline';
-  src: url('/Fonts/LondrinaOutline-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Patrichand';
-  src: url('/Fonts/PatrickHand.ttf') format('truetype');
+@layer base {
+  @font-face {
+    font-family: "Roboto";
+    font-display: swap;
+    src: url(./assets/Fonts/Roboto-Regular.ttf) format("truetype");
+  }
 }
