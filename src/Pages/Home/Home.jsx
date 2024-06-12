@@ -6,8 +6,7 @@ import {
   HeroSection,
   Projects,
   Skills,
-} from "../../components/Components";
-import Crousel from "@/components/Projects_Home/Crousel";
+} from "@/components/Components";
 
 function Home() {
   return (
