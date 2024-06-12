@@ -1,8 +1,8 @@
 import React from "react";
 import "./Skills.css";
 
-function Card({ skills, category }) {
-  function handlemousemove(e) {
+function Card({ skills, category, colorMapping }) {
+  function handleMouseMove(e) {
     const { currentTarget: target } = e;
 
     const rect = target.getBoundingClientRect();
@@ -14,24 +14,21 @@ function Card({ skills, category }) {
   }
 
   return (
-    <div className="card" onMouseMove={handlemousemove}>
+    <div className="card" onMouseMove={handleMouseMove}>
       <div className="card-content">
         <div className="grid place-items-center font-bold text-xl pb-3 relative">
-          {/* Skill catagory */}
           <p className="p-2 text-center">{category}</p>
         </div>
         <div className="flex flex-wrap gap-4 items-center justify-center py-3">
-          {/* skills */}
-          {skills.map((skill, i) => {
-            return (
-              <span
-                key={i}
-                className={`bg-gray-300 text-gray-800 grid place-items-center font-semibold px-4 py-2 rounded-md border-none`}
-              >
-                {skill.toUpperCase()}
-              </span>
-            );
-          })}
+          {skills.map((skill, i) => (
+            <span
+              key={i}
+              className="skill-badge grid place-items-center font-semibold rounded-md"
+              style={{ borderColor: colorMapping[skill], color: "#fff", border: `1px solid ${colorMapping[skill]}` }}
+            >
+              {skill.toUpperCase()}
+            </span>
+          ))}
         </div>
       </div>
     </div>

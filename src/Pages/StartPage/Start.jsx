@@ -9,66 +9,23 @@ function Start() {
   const data = useLoaderData();
 
   const skills = [
-    {
-      skill: "html.svg",
-      name: "html5",
-    },
-    {
-      skill: "css.svg",
-      name: "css3",
-    },
-    {
-      skill: "js.svg",
-      name: "javascript",
-    },
-    {
-      skill: "react.svg",
-      name: "react",
-    },
-    {
-      skill: "tailwind.svg",
-      name: "tailwind",
-    },
-    {
-      skill: "redux.svg",
-      name: "redux",
-    },
-    {
-      skill: "git.svg",
-      name: "git",
-    },
-    {
-      skill: "linux.svg",
-      name: "linux",
-    },
-    {
-      skill: "Appwrite.svg",
-      name: "Appwrite",
-    },
-    {
-      skill: "mui.svg",
-      name: "material UI",
-    },
-    {
-      skill: "c.svg",
-      name: "c",
-    },
-    {
-      skill: "mongodb.svg",
-      name: "Mongo DB",
-    },
-    {
-      skill: "express.svg",
-      name: "Express-js"
-    },
-    {
-      skill: "nodejs.svg",
-      name: "Node-js"
-    },
-    {
-      skill: "python.svg",
-      name: "Python"
-    }
+    "html",
+    "css",
+    "javascript",
+    "react",
+    "tailwind",
+    "redux",
+    "git",
+    "linux",
+    "appwrite",
+    "materialui",
+    "c",
+    "mongo",
+    "express",
+    "nodejs",
+    "python",
+    "latex",
+    "vite",
   ];
 
   return (
@@ -121,11 +78,12 @@ function Start() {
                 {skills.map((skill, index) => (
                   <img
                     key={index}
-                    src={"./SkillsLogos/" + skill.skill}
-                    alt={skill.name}
-                    title={skill.name}
-                    className="transition-all cursor-pointer filter hover:drop-shadow-md hover:-translate-y-2 w-12"
-                    loading="lazy"
+                    src={`https://skillicons.dev/icons?i=${skill}`}
+                    alt={skill}
+                    title={skill}
+                    loading="eager"
+                    // width={50}
+                    className="transition-all cursor-pointer filter hover:drop-shadow-md hover:-translate-y-2"
                   />
                 ))}
               </div>
