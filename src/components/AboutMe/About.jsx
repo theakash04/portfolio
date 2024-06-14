@@ -1,30 +1,21 @@
 import { User } from "lucide-react";
 import React from "react";
+import '../SkillSection/Skills.css'
 
 function About() {
-  function handlemousemove(e) {
-    const { currentTarget: target } = e;
-
-    const rect = target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    target.style.setProperty("--mouse-x", `${x}px`);
-    target.style.setProperty("--mouse-y", `${y}px`);
-  }
+  
   return (
     <div
-      className="max-w-[720px] w-full grid mb-10 overflow-hidden sm:mt-0 mt-20 card"
-      onMouseMove={handlemousemove}
+      className="max-w-[720px] w-full mb-10 overflow-hidden sm:mt-0 mt-20 card h-full"
     >
-      <div className="grid place-items-center gap-5 py-5">
-        <div className="flex items-center justify-center gap-2">
+      <div className="content flex items-center justify-center flex-col gap-7">
+        <div className="flex items-center gap-3">
           <User color="rgb(96,165,250)" />
           {/* small about in blue color */}
           <p className="font-semibold text-3xl text-gray-200">About me</p>
         </div>
         {/* about me */}
-        <p className="flex flex-wrap font-semibold font-roboto sm:w-[90%] w-full text-center text-pretty text-gray-300 pb-3 px-5">
+        <p className="flex flex-wrap font-semibold font-roboto w-full h-full text-center text-pretty text-gray-300 pb-3 px-5 text-lg">
           Hey there, I'm Akash Kumar, currently pursuing my BCA degree from BIT.
           I'm deeply passionate about emerging technologies and fascinated by
           the inner workings of new tech. I've already delved into React and

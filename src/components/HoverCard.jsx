@@ -1,7 +1,6 @@
 import React from "react";
-import "./Skills.css";
-
-function Card({ skills, category, colorMapping }) {
+import './SkillSection/Skills.css'
+function HoverCard() {
   function handleMouseMove(e) {
     const { currentTarget: target } = e;
 
@@ -12,7 +11,6 @@ function Card({ skills, category, colorMapping }) {
     target.style.setProperty("--mouse-x", `${x}px`);
     target.style.setProperty("--mouse-y", `${y}px`);
   }
-
   return (
     <div className="card" onMouseMove={handleMouseMove}>
       <div className="card-content">
@@ -24,7 +22,6 @@ function Card({ skills, category, colorMapping }) {
             <span
               key={i}
               className="skill-badge grid place-items-center font-semibold rounded-md"
-              style={{ borderColor: colorMapping[skill], color: "#fff", border: `1px solid ${colorMapping[skill]}` }}
             >
               {skill.toUpperCase()}
             </span>
@@ -35,4 +32,4 @@ function Card({ skills, category, colorMapping }) {
   );
 }
 
-export default Card;
+export default HoverCard;
