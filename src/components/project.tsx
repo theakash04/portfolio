@@ -1,6 +1,18 @@
+'use client'
 import Image from "next/image";
-import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import {
+  SiAppwrite,
+  SiMongodb,
+  SiMui,
+  SiNextdotjs,
+  SiRedux,
+  SiResend,
+  SiShadcnui,
+  SiTailwindcss,
+  SiVite,
+  SiZod,
+} from "react-icons/si";
 
 export function ProjectSection() {
   const data = [
@@ -8,12 +20,23 @@ export function ProjectSection() {
       title: "Do Blogs",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <div className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
             An Appwrite-powered platform for effortless blogging and reading.
             Styled with Tailwind CSS and Material UI, built on ViteReact JS for
             speed and responsiveness.{" "}
-            <Visit href={"https://doblogs.vercel.app"} />
-          </p>
+            <Visit
+              live={"https://doblogs.vercel.app"}
+              git="https://github.com/theakash04/Do-blogs"
+            />
+          </div>
+          <div className="mb-8 text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal flex items-center gap-2">
+            <span className="font-semibold">Used:</span>
+            <SiAppwrite />
+            <SiVite />
+            <SiTailwindcss />
+            <SiMui />
+            <SiRedux />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <Image
               src="https://utfs.io/f/f4cNGT6mesgbriSJKCTaiCruDOFEVQvH35AgeYLhklNZw7xb"
@@ -51,12 +74,24 @@ export function ProjectSection() {
       title: "unknown messages",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <div className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
             Un-Message lets you receive anonymous messages via a unique link.
             Share your link to collect messages without registration, read them
             anonymously, and manage message acceptance.{" "}
-            <Visit href={"https://un-msg.vercel.app"} />
-          </p>
+            <Visit
+              live={"https://un-msg.vercel.app"}
+              git="https://github.com/theakash04/unknown-msg"
+            />
+          </div>
+          <div className="mb-8 text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal flex items-center gap-2">
+            <span className="font-semibold">Used:</span>
+            <SiNextdotjs name="Nextjs" />
+            <SiTailwindcss />
+            <SiShadcnui />
+            <SiMongodb />
+            <SiResend />
+            <SiZod />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <Image
               src="https://utfs.io/f/f4cNGT6mesgbnHAmbuaNS3Q1TAevIozVlKrM6k2dOpwXiWPU"
@@ -99,18 +134,29 @@ export function ProjectSection() {
 }
 
 interface VisitProps {
-  href: string | undefined; // Accepts a string or undefined
+  live: string | undefined; // Accepts a string or undefined
+  git: string | undefined; // Accepts a string or undefined
 }
 
-function Visit({ href }: VisitProps) {
+function Visit({ live, git }: VisitProps) {
   return (
-    <a
-      href={href}
-      target="_blank" // Use "_blank" to open in a new tab
-      rel="noopener noreferrer" // Recommended for security reasons
-      className="text-blue-400 underline"
-    >
-      Visit &gt;
-    </a>
+    <div className="flex items-center gap-4 font-bold">
+      <a
+        href={live}
+        target="_blank" // Use "_blank" to open in a new tab
+        rel="noopener noreferrer" // Recommended for security reasons
+        className="text-blue-400 underline"
+      >
+        Live &gt;
+      </a>
+      <a
+        href={git}
+        target="_blank" // Use "_blank" to open in a new tab
+        rel="noopener noreferrer" // Recommended for security reasons
+        className="text-blue-400 underline"
+      >
+        Code &gt;
+      </a>
+    </div>
   );
 }
