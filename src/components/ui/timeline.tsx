@@ -40,7 +40,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         </h2>
         <p className="text-muted-foreground font-semibold text-sm md:text-base max-w-md">
           I have been working on many projects throughout my learning journey.
-          Here are my projects.
+          Here are some projects.
         </p>
       </div>
 
