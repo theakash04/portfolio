@@ -26,7 +26,7 @@ function HeroPage() {
           </HoverBorderGradient>
         </a>
         <h1 className="relative z-10 text-5xl md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-500  text-center font-sans font-bold py-8">
-          Hello! I'm Akash
+          Hello! I&apos;m Akash
         </h1>
         <p className="text-muted-foreground max-w-lg text-lg md:text-xl text-center relative z-10 font-semibold">
           Until you do something on your own in programming, nothing will happen
