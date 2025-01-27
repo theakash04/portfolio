@@ -1,0 +1,5 @@
+[
+  { "title": "ChatCraze", "desc": "chatcraze - an opensource and free chat web application", "github": "https://github.com/theakash04/ChatCraze" },
+  { "title": "Unknown Message", "desc": "Un-Message lets you receive anonymous messages via a unique link. Share your link to collect messages without registration, read them anonymously, and manage message acceptance." , "github": "https://github.com/theakash04/unknown-msg"},
+  { "title": "Termify", "desc": "Termify is an AI chatbot that simplifies terms and privacy policies, making them easy to understand for everyone." , "github": "https://github.com/theakash04/Termify"}
+]
