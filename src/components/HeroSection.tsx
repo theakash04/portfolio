@@ -33,13 +33,15 @@ const HeroSection: React.FC = () => {
 							AKASH KUMAR
 						</div>
 						<p className="max-w-lg text-foreground text-lg text-center">
-							I'm a Software Engineer who works on both backend and frontend development. I enjoy creating reliable software and applications that are built to scale and focused on delivering a great user experience.
+							I&#39;m a Software Engineer who works on both backend and frontend development. I enjoy creating reliable software and applications that are built to scale and focused on delivering a great user experience.
 						</p>
 
 						{/* ✅ Render skills only if available */}
 						<div className="flex flex-wrap gap-3 items-center justify-center">
+							{/* eslint-disable-next-line @next/next/no-img-element */}
 							{(skillsData as Skill[]).map((skill) => (
-								<img
+
+								< img
 									key={skill.skillName}
 									src={skill.link}
 									alt={skill.skillName}

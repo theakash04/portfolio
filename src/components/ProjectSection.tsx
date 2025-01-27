@@ -1,6 +1,5 @@
 'use client'
 import projectsData from "@/data/projects.json"
-import { FiGithub } from "react-icons/fi";
 
 interface Projects {
 	title: string;
