@@ -11,7 +11,7 @@ export default function ProjectsSection() {
 
     return (
         <section className="px-8 pb-10 flex items-center justify-center w-full flex-col gap-10 mb-10">
-            <h1 className="text-7xl font-extrabold bg-gradient-to-r from-accent-accent1 to-accent-accent2 bg-clip-text text-transparent">PROJECTS</h1>
+            <h1 className="sm:text-7xl text-4xl font-extrabold bg-gradient-to-r from-accent-accent1 to-accent-accent2 bg-clip-text text-transparent">PROJECTS</h1>
             <div className="flex items-stretch justify-center gap-8 flex-wrap">
                 {
                     (projectsData as Projects[]).map((items: Projects) => (
