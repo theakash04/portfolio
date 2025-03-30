@@ -2,13 +2,8 @@
 
 import { FiGithub } from 'react-icons/fi';
 import { HiOutlineBookOpen } from 'react-icons/hi';
-import skillsData from '@/data/skills.json'
 import Image from 'next/image';
 
-interface Skill {
-    skillName: string;
-    link: string;
-}
 
 const HeroSection: React.FC = () => {
     return (
