@@ -15,9 +15,7 @@ const QuoteCard: React.FC<QuoteCardProps> = () => {
         const res = await fetch("/api/getquote", {
           cache: "no-store",
         });
-        console.log("Response:", res);
         const data = await res.json();
-        console.log("Data:", data);
         setQuoteData(data);
       } catch (err) {
         console.error("Error fetching quote:", err);

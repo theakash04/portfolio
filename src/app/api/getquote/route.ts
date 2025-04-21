@@ -6,10 +6,7 @@ export async function GET() {
   const apiKey = process.env.GOOGLE_API_KEY;
 
   if (!apiKey) {
-    return NextResponse.json(
-      { error: "Missing Google API Key" },
-      { status: 500 }
-    );
+    throw new Error();
   }
 
   const genAI = new GoogleGenAI({ apiKey });
@@ -62,7 +59,7 @@ export async function GET() {
         quote: "In code we trust, but tests we must.",
         author: "Alex Debugsson",
       },
-      { status: 500 }
+      { status: 200 }
     );
   }
 }
