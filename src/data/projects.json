@@ -1,8 +1,0 @@
-[
-    {"title": "Quick Find", "desc": "QuickFind lets you save and rediscover blogs and articles effortlessly. Just input a URL, and our app extracts, stores, and summarizes the content. Search with keywords or vague descriptions to find your saved links, titles, and summaries instantly—never lose track of great reads again!", "github": "https://github.com/theakash04/QuickSearch"},
-    {"title": "Vocals", "desc": "VOCALS detects stuttering in user-recorded or uploaded WAV audio using a custom-trained model for real-time analysis.", "github": "https://github.com/theakash04/stuttering-detection-API"},
-    { "title": "Event-Pass-Verification-System", "desc": "A rapid dual web app solution for a college event managing 2,000+ registrations. It features a QR code pass generator and real-time verification scanner, built with React, Node.js/Express, MongoDB, and Google Drive API." , "github": "https://github.com/theakash04/Event-Pass-Verification-System"},
-    { "title": "Termify", "desc": "Termify is an AI chatbot that simplifies terms and privacy policies, making them easy to understand for everyone." , "github": "https://github.com/theakash04/Termify"},
-    { "title": "ChatCraze", "desc": "chatcraze - an opensource and free chat web application", "github": "https://github.com/theakash04/ChatCraze" },
-    { "title": "Unknown Message", "desc": "Un-Message lets you receive anonymous messages via a unique link. Share your link to collect messages without registration, read them anonymously, and manage message acceptance." , "github": "https://github.com/theakash04/unknown-msg"}
-]

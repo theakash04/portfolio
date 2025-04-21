@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --primary-color: #0a0a0a;
+    --primary-color: #111111;
     --secondary-color: #ffffff;
     --accent1: #ffd700;
     --accent2: #265882;
@@ -13,11 +13,7 @@
   }
 
   body {
-    background: linear-gradient(
-      to bottom right,
-      var(--gradient-start),
-      var(--gradient-end)
-    );
+    background: var(--primary-color);
     color: var(--secondary-color);
     font-family: 'Arial', sans-serif;
     min-height: 100vh;

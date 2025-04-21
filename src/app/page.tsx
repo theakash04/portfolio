@@ -1,13 +1,9 @@
-//import BlogSection from "@/components/BlogSection";
-import HeroSection from "@/components/HeroSection";
-import ProjectsSection from "@/components/ProjectSection";
+import MainSection from "@/components/MainSection";
 
 export default function Home() {
   return (
-    <main>
-      <HeroSection />
-      <ProjectsSection />
-      { /*<BlogSection /> */}
+    <main className="px-6 md:px-0 md:max-w-screen-md md:mx-auto py-16 md:py-24">
+      <MainSection />
     </main>
   );
 }
