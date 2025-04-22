@@ -15,7 +15,42 @@ export type projectData = {
   progress: string;
 };
 
-export const CoreProjects: projectData[] = [];
+export const CoreProjects: projectData[] = [
+  {
+    title: "Rag CLI",
+    description: "Chat with an AI about any webpage — from your terminal.",
+    tags: {
+      frontend: "CLI Interface",
+      backend: "Python",
+      database: "FAISS Vector Store",
+      devops: "None",
+    },
+    link: {
+      github: "https://github.com/theakash04/rag-cli",
+      youtube: "",
+      live: "",
+    },
+    progress: "100%",
+  },
+
+  {
+    title: "Tel BOT",
+    description:
+      "A Telegram bot that send message to a public channel by scraping a website.",
+    tags: {
+      frontend: "CLI Interface",
+      backend: "Python",
+      database: "None",
+      devops: "None",
+    },
+    link: {
+      github: "https://github.com/theakash04/telBot",
+      youtube: "",
+      live: "",
+    },
+    progress: "100%",
+  },
+];
 
 export const fullStackProjects: projectData[] = [
   {
@@ -68,6 +103,23 @@ export const fullStackProjects: projectData[] = [
       github: "https://github.com/theakash04/Termify",
       youtube: "https://youtu.be/ZS9PkNtLM7U?si=tRtsE2bNJsp8pW46",
       live: "https://termify.streamlit.app/",
+    },
+    progress: "100%",
+  },
+  {
+    title: "Spotlight",
+    description:
+      "A socila media application for sharing posts using React Native.",
+    tags: {
+      frontend: "React Native",
+      backend: "None",
+      database: "Convex",
+      devops: "None",
+    },
+    link: {
+      github: "https://github.com/theakash04/spotlight",
+      youtube: "",
+      live: "",
     },
     progress: "100%",
   },

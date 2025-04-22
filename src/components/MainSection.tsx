@@ -13,12 +13,9 @@ const MainSection: React.FC = () => {
       <Profile />
       <About />
       <ReachOut />
-      <SkillCard skills={SkillsContent.skills} />
       <MainProjectSection />
-      <QuoteCard
-        quote="To be insanely hopeful even after all that, you call it madness, I call it strength."
-        author="Some Wise Dev"
-      />
+      <SkillCard skills={SkillsContent.skills} />
+      <QuoteCard />
     </div>
   );
 };

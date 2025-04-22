@@ -6,7 +6,7 @@ interface QuoteCardProps {
   author?: string;
 }
 
-const QuoteCard: React.FC<QuoteCardProps> = () => {
+const QuoteCard = () => {
   const [quoteData, setQuoteData] = useState<QuoteCardProps | null>(null);
 
   useEffect(() => {
