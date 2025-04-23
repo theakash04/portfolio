@@ -11,7 +11,7 @@ export default function About() {
         <h1 className="text-[#EEEEEE] font-medium">About Me</h1>
         <div className="flex flex-col items-start">
           <p className="text-[#B4B4B4] font-light">
-            I’m Akash Kumar, a Software Engineer.
+            I’m Akash Kumar, a Software Developer.
             <br />
             <br />
             I’m currently at{" "}

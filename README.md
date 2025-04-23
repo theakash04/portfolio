@@ -11,6 +11,5 @@ You can view my hosted portfolio at the following link:
 ## Technologies Used
 
 - **Next.js**
-- **Acertinity**
 - **TailwindCss**
-
+- **Motion**
