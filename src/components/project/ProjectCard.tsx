@@ -37,7 +37,7 @@ const ProjectCard = ({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-earth w-3.5 h-3.5"
+              className="w-3.5 h-3.5"
             >
               <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
               <path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
@@ -80,7 +80,7 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-code-xml w-3 h-3 text-red-500 dark:text-red-400"
+            className="w-3 h-3 text-red-500 dark:text-red-400"
           >
             <path d="m18 16 4-4-4-4" />
             <path d="m6 8-4 4 4 4" />
@@ -101,7 +101,7 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-frame w-3 h-3 text-yellow-500 dark:text-yellow-400"
+            className="w-3 h-3 text-yellow-500 dark:text-yellow-400"
           >
             <line x1="22" x2="2" y1="6" y2="6" />
             <line x1="22" x2="2" y1="18" y2="18" />
@@ -123,7 +123,7 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-database w-3 h-3 text-indigo-500 dark:text-indigo-400"
+            className="w-3 h-3 text-indigo-500 dark:text-indigo-400"
           >
             <ellipse cx="12" cy="5" rx="9" ry="3" />
             <path d="M3 5V19A9 3 0 0 0 21 19V5" />
@@ -144,7 +144,7 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-cloud w-3 h-3 text-emerald-500 dark:text-emerald-400"
+            className="w-3 h-3 text-emerald-500 dark:text-emerald-400"
           >
             <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
           </svg>
@@ -200,7 +200,7 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-arrow-up-right w-4 h-4"
+            className="w-4 h-4"
           >
             <path d="M7 7h10v10" />
             <path d="M7 17 17 7" />
