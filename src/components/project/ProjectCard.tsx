@@ -12,11 +12,11 @@ const ProjectCard = ({
   progress,
 }: ProjectCardProps) => {
   return (
-    <div className="relative h-full rounded-2xl p-6 bg-white dark:bg-[#141415] backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 transition-all duration-300 w-full">
+    <div className="relative h-full rounded-2xl p-6 bg-[#141415] backdrop-blur-sm border border-zinc-800 transition-all duration-300 w-full">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h3 className="font-medium text-zinc-900 dark:text-white">{title}</h3>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <h3 className="font-medium text-white">{title}</h3>
+          <p className="text-sm text-zinc-400">
             {description}
           </p>
         </div>
@@ -24,7 +24,7 @@ const ProjectCard = ({
           <a
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-medium"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-900/30 text-amber-400 text-xs font-medium"
             href={link.live}
           >
             <svg
@@ -58,10 +58,10 @@ const ProjectCard = ({
               height="24"
               decoding="async"
               data-nimg="1"
-              className="rounded-full ring-2 ring-white dark:ring-zinc-900 transition-transform hover:-translate-y-1 duration-200"
+              className="rounded-full ring-2 ring-zinc-900 transition-transform hover:-translate-y-1 duration-200"
               src="/chamber.jpg"
             />
-            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md text-[10px] bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 opacity-0 group-hover/member:opacity-100 transition-opacity duration-200">
+            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md text-[10px] bg-zinc-100 text-zinc-900 opacity-0 group-hover/member:opacity-100 transition-opacity duration-200">
               sky
             </span>
           </div>
@@ -69,7 +69,7 @@ const ProjectCard = ({
       </div>
       {/* need to fix the tag */}
       <div className="grid grid-cols-2 gap-2 mb-3">
-        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/50 dark:border-zinc-800/50">
+        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-800/50 border border-zinc-800/50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -80,17 +80,17 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-3 h-3 text-red-500 dark:text-red-400"
+            className="w-3 h-3 text-red-400"
           >
             <path d="m18 16 4-4-4-4" />
             <path d="m6 8-4 4 4 4" />
             <path d="m14.5 4-5 16" />
           </svg>
-          <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <span className="text-sm font-medium text-zinc-300">
             {tags.frontend}
           </span>
         </div>
-        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/50 dark:border-zinc-800/50">
+        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-800/50 border border-zinc-800/50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -101,18 +101,18 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-3 h-3 text-yellow-500 dark:text-yellow-400"
+            className="w-3 h-3 text-yellow-400"
           >
             <line x1="22" x2="2" y1="6" y2="6" />
             <line x1="22" x2="2" y1="18" y2="18" />
             <line x1="6" x2="6" y1="2" y2="22" />
             <line x1="18" x2="18" y1="2" y2="22" />
           </svg>
-          <span className="text-sm text-zinc-700 dark:text-zinc-300">
+          <span className="text-sm text-zinc-300">
             {tags.backend}
           </span>
         </div>
-        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/50 dark:border-zinc-800/50">
+        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-800/50 border border-zinc-800/50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -123,17 +123,17 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-3 h-3 text-indigo-500 dark:text-indigo-400"
+            className="w-3 h-3 text-indigo-400"
           >
             <ellipse cx="12" cy="5" rx="9" ry="3" />
             <path d="M3 5V19A9 3 0 0 0 21 19V5" />
             <path d="M3 12A9 3 0 0 0 21 12" />
           </svg>
-          <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <span className="text-sm font-medium text-zinc-300">
             {tags.database}
           </span>
         </div>
-        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/50 dark:border-zinc-800/50">
+        <div className="flex items-center justify-center gap-2 p-1 rounded-xl bg-zinc-800/50 border border-zinc-800/50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -144,34 +144,34 @@ const ProjectCard = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-3 h-3 text-emerald-500 dark:text-emerald-400"
+            className="w-3 h-3 text-emerald-400"
           >
             <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
           </svg>
-          <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <span className="text-sm font-medium text-zinc-300">
             {tags.devops}
           </span>
         </div>
       </div>
       <div className="space-y-2">
         <div className="flex items-center justify-between text-sm">
-          <span className="font-medium text-zinc-700 dark:text-zinc-300">
+          <span className="font-medium text-zinc-300">
             Progress
           </span>
-          <span className="text-zinc-500 dark:text-zinc-400">{progress}</span>
+          <span className="text-zinc-400">{progress}</span>
         </div>
-        <div className="h-2 rounded-full bg-zinc-100 dark:bg-zinc-800">
+        <div className="h-2 rounded-full bg-zinc-800">
           <div
-            className="h-full rounded-full bg-indigo-500 dark:bg-indigo-400 transition-all duration-1000 ease-out"
+            className="h-full rounded-full bg-indigo-400 transition-all duration-1000 ease-out"
             style={{ width: progress }}
           />
         </div>
       </div>
-      <div className="mt-6 pt-4 space-y-4 border-t border-zinc-200 dark:border-zinc-800">
+      <div className="mt-6 pt-4 space-y-4 border-t border-zinc-800">
         <a
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors duration-200"
+          className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors duration-200"
           href={link.github}
         >
           <svg

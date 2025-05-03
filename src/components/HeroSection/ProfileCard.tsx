@@ -5,7 +5,7 @@ import EnterAnim from "../EnterAnim";
 const Profile = () => {
   return (
     <EnterAnim>
-      <div className="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-[#141415] backdrop-blur-sm">
+      <div className="p-6 rounded-2xl border border-zinc-800 bg-[#141415] backdrop-blur-sm">
         <div className="flex items-start gap-5">
           <Image
             alt="Akash Kumar"
@@ -13,15 +13,15 @@ const Profile = () => {
             height={80}
             loading="lazy"
             src="/chamber.jpg"
-            className="rounded-lg object-cover ring-1 ring-zinc-200 dark:ring-zinc-800"
+            className="rounded-lg object-cover ring-1 ring-zinc-800"
           />
           <div className="flex-1 min-w-0">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
               <div>
-                <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                <h2 className="text-lg font-medium text-zinc-100">
                   Akash Kumar
                 </h2>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                <p className="text-sm text-zinc-400">
                   Software Developer
                 </p>
               </div>
@@ -64,7 +64,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="mt-4 space-y-2">
-              <div className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <div className="flex items-center gap-2 text-sm text-zinc-400">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -79,7 +79,7 @@ const Profile = () => {
                 </svg>
                 Ranchi-JH, India
               </div>
-              <div className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <div className="flex items-center gap-2 text-sm text-zinc-400">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -94,12 +94,12 @@ const Profile = () => {
                 </svg>
                 <a
                   href="mailto:aakashkkr04@gmail.com"
-                  className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors truncate"
+                  className="hover:text-zinc-100 transition-colors truncate"
                 >
                   aakashkkr04@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <div className="flex items-center gap-2 text-sm text-zinc-400">
                 <svg
                   viewBox="0 0 24 24"
                   className="w-4 h-4"
@@ -115,7 +115,7 @@ const Profile = () => {
                   href="https://linkedin.com/in/theakash04"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1"
+                  className="hover:text-zinc-100 transition-colors flex items-center gap-1"
                 >
                   theakash04
                 </a>

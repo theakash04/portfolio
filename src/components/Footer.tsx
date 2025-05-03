@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="w-full bottom-0">
-      <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
       <div className="md:max-w-screen-md md:mx-auto px-4 md:px-0 flex flex-col items-center gap-6 pt-6 pb-24">
         <div className="flex flex-wrap text-sm items-center justify-center gap-6 text-[#B4B4B4]">
           <a
