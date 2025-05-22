@@ -54,6 +54,21 @@ export const CoreProjects: projectData[] = [
 
 export const fullStackProjects: projectData[] = [
   {
+    title: "Recall",
+    description:
+      "Smart bookmarks with AI recall. Save articles, websites, and documents—then ask questions about them anytime. Recall remembers so you don’t have to.",
+    tags: {
+      frontend: "Next.js",
+      backend: "Node.js + Express.js",
+      database: "supabase",
+      devops: "None",
+    },
+    link: {
+      github: "https://github.com/theakash04/Recall",
+    },
+    progress: "70%",
+  },
+  {
     title: "Quick Find",
     description:
       "QuickFind lets you save and rediscover blogs and articles effortlessly. Just input a URL, and our app extracts, stores, and summarizes the content. Search with keywords or vague descriptions to find your saved links, titles, and summaries instantly—never lose track of great reads again!",
