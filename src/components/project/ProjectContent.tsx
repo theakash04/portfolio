@@ -11,6 +11,7 @@ export type projectData = {
     github: string;
     youtube?: string;
     live?: string;
+    apk?: string;
   };
   progress: string;
 };
