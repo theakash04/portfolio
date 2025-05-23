@@ -59,12 +59,13 @@ export const fullStackProjects: projectData[] = [
       "Smart bookmarks with AI recall. Save articles, websites, and documents—then ask questions about them anytime. Recall remembers so you don’t have to.",
     tags: {
       frontend: "Next.js",
-      backend: "Node.js + Express.js",
+      backend: "Express.js",
       database: "supabase",
       devops: "None",
     },
     link: {
       github: "https://github.com/theakash04/Recall",
+      live: "",
     },
     progress: "70%",
   },
@@ -112,7 +113,7 @@ export const fullStackProjects: projectData[] = [
       frontend: "Streamlit",
       backend: "None",
       database: "Snowflake",
-      devops: "Streamlit community cloud",
+      devops: "Streamlit c.c",
     },
     link: {
       github: "https://github.com/theakash04/Termify",
