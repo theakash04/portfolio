@@ -13,94 +13,96 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <div className="relative h-full rounded-2xl p-6 bg-[#141415] backdrop-blur-sm border border-zinc-800 transition-all duration-300 w-full">
-      <div className="flex items-start justify-between mb-3 gap-2">
-        <div>
+      <div className="flex items-start flex-col mb-3 gap-2 w-full">
+        <div className="flex  w-full items-center justify-between">
           <h3 className="font-medium text-white">{title}</h3>
-          <p className="text-sm text-zinc-400">{description}</p>
+          <div className="flex items-center gap-2">
+            {link.live && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-900/30 text-amber-400 text-xs font-medium"
+                href={link.live}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-3.5 h-3.5"
+                >
+                  <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+                  <path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
+                  <path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                <span>Live</span>
+              </a>
+            )}
+            {link.youtube && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-900/30 text-red-400 text-xs font-medium"
+                href={link.youtube}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-3.5 h-3.5"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
+                </svg>
+                <span>Demo</span>
+              </a>
+            )}
+            {link.apk && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-900/30 text-green-400 text-xs font-medium"
+                href={link.apk}
+              >
+                {/* Insert SVG here */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-3.5 h-3.5"
+                >
+                  <path d="M9 20V14" />
+                  <path d="M15 20V14" />
+                  <rect x="4" y="8" width="16" height="10" rx="2" />
+                  <path d="M4 10L2 6" />
+                  <path d="M20 10L22 6" />
+                  <circle cx="9" cy="12" r="0.5" fill="currentColor" />
+                  <circle cx="15" cy="12" r="0.5" fill="currentColor" />
+                </svg>
+                <span>apk</span>
+              </a>
+            )}
+          </div>
         </div>
-        {link.live && (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-900/30 text-amber-400 text-xs font-medium"
-            href={link.live}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-3.5 h-3.5"
-            >
-              <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
-              <path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
-              <path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
-              <circle cx="12" cy="12" r="10" />
-            </svg>
-            <span>Live</span>
-          </a>
-        )}
-        {link.youtube && (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-900/30 text-red-400 text-xs font-medium"
-            href={link.youtube}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-3.5 h-3.5"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
-            </svg>
-            <span>Demo</span>
-          </a>
-        )}
-        {link.apk && (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-900/30 text-green-400 text-xs font-medium"
-            href={link.apk}
-          >
-            {/* Insert SVG here */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-3.5 h-3.5"
-            >
-              <path d="M9 20V14" />
-              <path d="M15 20V14" />
-              <rect x="4" y="8" width="16" height="10" rx="2" />
-              <path d="M4 10L2 6" />
-              <path d="M20 10L22 6" />
-              <circle cx="9" cy="12" r="0.5" fill="currentColor" />
-              <circle cx="15" cy="12" r="0.5" fill="currentColor" />
-            </svg>
-            <span>apk</span>
-          </a>
-        )}
+        <p className="text-sm text-zinc-400">{description}</p>
       </div>
       <div className="flex items-center gap-2 mb-3">
         <div className="flex -space-x-2">
