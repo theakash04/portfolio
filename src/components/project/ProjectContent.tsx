@@ -68,7 +68,7 @@ export const fullStackProjects: projectData[] = [
       github: "https://github.com/theakash04/Recall",
       live: "",
     },
-    progress: "80%",
+    progress: "90%",
   },
   {
     title: "Quick Find",
@@ -119,7 +119,7 @@ export const fullStackProjects: projectData[] = [
     link: {
       github: "https://github.com/theakash04/Termify",
       youtube: "https://youtu.be/ZS9PkNtLM7U?si=tRtsE2bNJsp8pW46",
-      live: "https://termify.streamlit.app/",
+      live: "",
     },
     progress: "100%",
   },
