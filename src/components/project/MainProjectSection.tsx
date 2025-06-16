@@ -5,7 +5,7 @@ import EnterAnim from "../EnterAnim";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function MainProjectSection() {
-  const [activeTab, setActiveTab] = useState<"fullstack" | "core">("fullstack");
+  const [activeTab, setActiveTab] = useState<"fullstack" | "Fun projects">("fullstack");
 
   const projectList =
     activeTab === "fullstack" ? fullStackProjects : CoreProjects;
@@ -21,34 +21,31 @@ export default function MainProjectSection() {
         </p>
 
         <div
-          className={`grid w-full ${
-            fullStackProjects.length !== 0 && CoreProjects.length !== 0
-              ? "grid-cols-2"
-              : "grid-cols-1"
-          } rounded-xl bg-[#141415] border border-zinc-800 h-9 overflow-hidden`}
+          className={`grid w-full ${fullStackProjects.length !== 0 && CoreProjects.length !== 0
+            ? "grid-cols-2"
+            : "grid-cols-1"
+            } rounded-xl bg-[#141415] border border-zinc-800 h-9 overflow-hidden`}
         >
           {fullStackProjects.length !== 0 && (
             <button
               onClick={() => setActiveTab("fullstack")}
-              className={`text-sm font-medium h-full w-full px-3 py-1 transition-all ${
-                activeTab === "fullstack"
-                  ? "bg-zinc-900 text-[#EEEEEE] shadow"
-                  : "text-[#B4B4B4]"
-              }`}
+              className={`text-sm font-medium h-full w-full px-3 py-1 transition-all ${activeTab === "fullstack"
+                ? "bg-zinc-900 text-[#EEEEEE] shadow"
+                : "text-[#B4B4B4]"
+                }`}
             >
               Full Stack
             </button>
           )}
           {CoreProjects.length !== 0 && (
             <button
-              onClick={() => setActiveTab("core")}
-              className={`text-sm font-medium h-full w-full px-3 py-1 transition-all ${
-                activeTab === "core"
-                  ? "bg-zinc-900 text-[#EEEEEE] shadow"
-                  : "text-[#B4B4B4]"
-              }`}
+              onClick={() => setActiveTab("Fun projects")}
+              className={`text-sm font-medium h-full w-full px-3 py-1 transition-all ${activeTab === "Fun projects"
+                ? "bg-zinc-900 text-[#EEEEEE] shadow"
+                : "text-[#B4B4B4]"
+                }`}
             >
-              Core
+              Fun projects
             </button>
           )}
         </div>
