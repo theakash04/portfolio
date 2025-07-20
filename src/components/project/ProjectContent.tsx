@@ -66,7 +66,7 @@ export const fullStackProjects: projectData[] = [
     },
     link: {
       github: "https://github.com/theakash04/Recall",
-      live: "https://recall.akashtwt.me",
+      // live: "https://recall.akashtwt.me",
       youtube: "https://youtu.be/vUdmjR8TZdc"
     },
     progress: "100%",
