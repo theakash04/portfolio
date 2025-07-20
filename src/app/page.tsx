@@ -1,4 +1,4 @@
-import AnnouncementBanner from "@/components/AnnouncementBanner";
+// import AnnouncementBanner from "@/components/AnnouncementBanner";
 import MainSection from "@/components/MainSection";
 
 export default function Home() {
