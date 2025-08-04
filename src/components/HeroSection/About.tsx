@@ -11,23 +11,10 @@ export default function About() {
         <h1 className="text-[#EEEEEE] font-medium">About Me</h1>
         <div className="flex flex-col items-start">
           <p className="text-[#B4B4B4] font-light">
-            I’m Akash Kumar, a Software Developer.
+            I’m Akash, a Developer
             <br />
-            <br />
-            I’m currently at{" "}
-            <a
-              target="_self"
-              rel="noopener noreferrer"
-              className="text-[#FE6A34] font-medium"
-              href="#"
-            >
-              BIT, Mesra.
-            </a>{" "}
-            Completing my degree in Computer Applications.
-            <br />
-            <br />
-            Always liked coding and building things. So here I am, learning and
-            building stuff.
+            crafting clean UIs and exploring <span className="font-semibold">world</span>{" "}
+            with <span className="text-[#FE6A34] font-semibold">code.</span>
           </p>
         </div>
       </div>

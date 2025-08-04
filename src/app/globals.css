@@ -15,8 +15,13 @@
   body {
     background: var(--primary-color);
     color: var(--secondary-color);
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     min-height: 100vh;
     transition: all 0.3s ease;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
 }
