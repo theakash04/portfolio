@@ -42,9 +42,9 @@ export default function Experience() {
             <span className="text-[#B4B4B4] text-sm font-light">
               {exp.company} · {exp.type} · {exp.location}
             </span>
-            <div className="border-l-4 border-[#6AB0F3] pl-4 mt-2 space-y-2 w-max px-4 py-2">
+            <div className="border-l-4 border-[#6AB0F3] pl-4 mt-2 space-y-2 px-4 py-2 text-wrap max-w-md">
               {exp.points.map((point, idx) => (
-                <p key={idx} className="text-[#B4B4B4] text-sm font-semibold">
+                <p key={idx} className="text-[#B4B4B4] text-sm font-semibold text-wrap">
                   {point}
                 </p>
               ))}
