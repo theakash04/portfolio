@@ -21,8 +21,8 @@ const ExperiencesData: ExpDataType[] = [
     type: "Internship",
     location: "Hybrid",
     points: [
-      "Built a company management platform for user and website control",
-      "Worked on backend access control (RBAC, PBAC, device/session limits)",
+      // "Built a company management platform for user and website control",
+      // "Worked on backend access control (RBAC, PBAC, device/session limits)",
     ],
   }
 ]
@@ -42,13 +42,15 @@ export default function Experience() {
             <span className="text-[#B4B4B4] text-sm font-light">
               {exp.company} · {exp.type} · {exp.location}
             </span>
-            <div className="border-l-4 border-[#6AB0F3] pl-4 mt-2 space-y-2 px-4 py-2 text-wrap max-w-md">
-              {exp.points.map((point, idx) => (
-                <p key={idx} className="text-[#B4B4B4] text-sm font-semibold text-wrap">
-                  {point}
-                </p>
-              ))}
-            </div>
+            {exp.points.length > 0 &&
+              <div className="border-l-4 border-[#6AB0F3] pl-4 mt-2 space-y-2 px-4 py-2 text-wrap max-w-md">
+                {exp.points.map((point, idx) => (
+                  <p key={idx} className="text-[#B4B4B4] text-sm font-semibold text-wrap">
+                    {point}
+                  </p>
+                ))}
+              </div>
+            }
           </div>
         ))}
       </div>
