@@ -55,6 +55,23 @@ export const CoreProjects: projectData[] = [
 
 export const fullStackProjects: projectData[] = [
   {
+    title: "Wallhaven",
+    description:
+      "High‑speed cross‑platform wallpaper explorer(React Native + Expo) pulling Wallhaven & Nekos images with filters, progressive loading, immersive preview, and one‑tap high‑res save",
+    tags: {
+      frontend: "React Native (Expo)",
+      backend: "None",
+      database: "None",
+      devops: "Gradle"
+    },
+    link: {
+      github: "https://github.com/theakash04/wallhaven",
+      // youtube: ""          // (optional) add demo video link
+      apk: "https://drive.google.com/file/d/1lxoUAFoXJuAyaja43Dl9JPNkSwQIFKx1/view?usp=sharing"
+    },
+    progress: "100%"
+  },
+  {
     title: "Recall",
     description:
       "Smart bookmarks with AI recall. Save articles, websites, and documents—then ask questions about them anytime. Recall remembers so you don’t have to.",
@@ -127,7 +144,7 @@ export const fullStackProjects: projectData[] = [
   {
     title: "Spotlight",
     description:
-      "A socila media application for sharing posts using React Native.",
+      "A social media application for sharing posts using React Native.",
     tags: {
       frontend: "React Native",
       backend: "None",
