@@ -13,8 +13,8 @@ export default function About() {
           <p className="text-[#B4B4B4] font-light">
             I’m Akash, a Developer
             <br />
-            crafting clean UIs and exploring <span className="font-semibold">world</span>{" "}
-            with <span className="text-[#FE6A34] font-semibold">code.</span>
+            Developing things
+            that <span className="text-[#FE6A34] font-semibold">Matters.</span>
           </p>
         </div>
       </div>
