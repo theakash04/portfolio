@@ -1,14 +1,15 @@
 "use client";
 import Image from "next/image";
 import EnterAnim from "../EnterAnim";
+import Link from "next/link";
 
 const Profile = () => {
   return (
     <EnterAnim>
       <div className="p-6 rounded-2xl border border-zinc-800 bg-[#141415] backdrop-blur-sm">
-        <div className="flex items-start gap-5">
+        <div className="flex items-center gap-5">
           <Image
-            alt="Akash Kumar"
+            alt="Sky"
             width={80}
             height={80}
             loading="lazy"
@@ -18,10 +19,8 @@ const Profile = () => {
           <div className="flex-1 min-w-0">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <div>
-                <h2 className="text-lg font-medium text-zinc-100">
-                  Akash Kumar
-                </h2>
-                <p className="text-sm text-zinc-400">Software Developer</p>
+                <h2 className="text-lg font-medium text-zinc-100">Sky</h2>
+                <p className="text-sm text-zinc-400">Developer</p>
               </div>
               <div className="flex items-center gap-2">
                 <a
@@ -61,72 +60,22 @@ const Profile = () => {
                     />
                   </svg>
                 </a>
-                <a
-                  href="https://docs.google.com/document/d/1Gx1nhdrqa1cS2q3VbWhbVzAc-nhaM5M6EWfMRNOlbN4/edit?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/zapme"
+                  title="Support me"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border shadow-sm hover:text-accent-foreground h-9 w-9 bg-[#111111] border-zinc-800 hover:bg-zinc-800/50"
-                  title="View Resume"
                 >
                   <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
                     viewBox="0 0 24 24"
-                  >
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14,2 14,8 20,8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                    <polyline points="10,9 9,9 8,9" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className="mt-4 space-y-2">
-              <div className="flex items-center gap-2 text-sm text-zinc-400 min-w-0">
-                <svg
-                  className="w-4 h-4 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  viewBox="0 0 24 24"
-                >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-                <a
-                  href="mailto:aakashkkr04@gmail.com"
-                  className="hover:text-zinc-100 transition-colors truncate min-w-0"
-                >
-                  aakashkkr04@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-zinc-400 min-w-0">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 flex-shrink-0"
-                  fill="currentColor"
-                >
-                  <title>LinkedIn</title>
-                  <path
+                    className="w-4 h-4"
                     fill="currentColor"
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  />
-                </svg>
-                <a
-                  href="https://linkedin.com/in/theakash04"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-zinc-100 transition-colors truncate min-w-0"
-                >
-                  theakash04
-                </a>
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>

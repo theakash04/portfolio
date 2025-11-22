@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <div className="w-full bottom-0">
       <div className="h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
-      <div className="md:max-w-screen-md md:mx-auto px-4 md:px-0 flex flex-col items-center gap-6 pt-6 pb-24">
+      <div className="md:max-w-screen-md md:mx-auto px-4 md:px-0 flex flex-col items-center gap-6 pt-6 pb-5">
         <div className="flex flex-wrap text-sm items-center justify-center gap-6 text-[#B4B4B4]">
           <a
             target="_blank"
@@ -17,25 +17,6 @@ const Footer = () => {
               ></path>
             </svg>
             GitHub
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 hover:text-[#EEEEEE] transition-all duration-200"
-            href="https://www.linkedin.com/in/theakash04/"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-            >
-              <title>LinkedIn</title>
-              <path
-                fill="currentColor"
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              ></path>
-            </svg>
-            LinkedIn
           </a>
           <a
             target="_blank"
@@ -56,33 +37,7 @@ const Footer = () => {
             </svg>
             Twitter
           </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 hover:text-[#EEEEEE] transition-all duration-200"
-            href="mailto:aakashkkr04@gmail.com"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-            Email
-          </a>
         </div>
-        <p className="text-sm text-[#B4B4B4]">
-          © 2025 Akash Kumar. All rights reserved.
-        </p>
       </div>
     </div>
   );

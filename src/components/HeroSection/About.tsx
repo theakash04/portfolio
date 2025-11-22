@@ -11,10 +11,10 @@ export default function About() {
         <h1 className="text-[#EEEEEE] font-medium">About Me</h1>
         <div className="flex flex-col items-start">
           <p className="text-[#B4B4B4] font-light">
-            I’m Akash, a Developer
+            I’m Sky, a Developer
             <br />
-            Developing things
-            that <span className="text-[#FE6A34] font-semibold">Matters.</span>
+            Developing things that{" "}
+            <span className="text-[#FE6A34] font-semibold">Matters.</span>
           </p>
         </div>
       </div>
