@@ -61,7 +61,6 @@ const SupportPage = () => {
             {/* Payment Options Tabs */}
             <div className="grid grid-cols-2 gap-2 p-1 bg-[#0a0a0a] rounded-lg">
               <button className="px-4 py-2 rounded-md bg-yellow-400 text-black font-medium text-sm transition-colors flex items-center justify-center gap-2">
-                <span>⚡</span>
                 Lightning
               </button>
               <button className="px-4 py-2 rounded-md text-zinc-400 font-medium text-sm hover:bg-zinc-800/50 transition-colors flex items-center justify-center gap-2">
