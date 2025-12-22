@@ -55,6 +55,22 @@ export const CoreProjects: projectData[] = [
 
 export const fullStackProjects: projectData[] = [
   {
+    title: "Nostr Rewind",
+    description:
+      "A client-side powerhouse that transforms your year on the Nostr network into an immersive, Spotify Wrapped-style interactive story. With zero backend and total privacy, it uses AI-driven vibe analysis to distill your decentralized presence into a unique, shareable identity.",
+    tags: {
+      frontend: "Next.js / TypeScript",
+      backend: "None (Client-side)",
+      database: "Nostr Relays",
+      devops: "Docker",
+    },
+    link: {
+      github: "https://github.com/theakash04/nostr-rewind",
+      live: "https://rewind.akashtwt.me",
+    },
+    progress: "100%",
+  },
+  {
     title: "Wallhaven",
     description:
       "High‑speed cross‑platform wallpaper explorer(React Native + Expo) pulling Wallhaven & Nekos images with filters, progressive loading, immersive preview, and one‑tap high‑res save",
