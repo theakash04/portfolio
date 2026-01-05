@@ -55,6 +55,22 @@ export const CoreProjects: projectData[] = [
 
 export const fullStackProjects: projectData[] = [
   {
+    title: "Nubilus",
+    description:
+      "An open-source, self-hosted infrastructure monitoring platform. Track your servers, endpoints, and databases in real-time with a lightweight Rust agent, a robust Node.js backend, and a sleek React dashboard. Features threshold-based alerting, historical trends, and complete control over your data.",
+    tags: {
+      frontend: "TypeScript / Vite",
+      backend: "Express / TypeScript",
+      database: "PostgreSQL (TimescaleDB)",
+      devops: "Docker / Rust Agent",
+    },
+    link: {
+      github: "https://github.com/theakash04/Nubilus",
+      live: "https://nubilus-docs.akashtwt.me", // TODO: later change it to nublius.akashtwt.me
+    },
+    progress: "60%",
+  },
+  {
     title: "Nostr Rewind",
     description:
       "A client-side powerhouse that transforms your year on the Nostr network into an immersive, Spotify Wrapped-style interactive story. With zero backend and total privacy, it uses AI-driven vibe analysis to distill your decentralized presence into a unique, shareable identity.",
@@ -78,14 +94,14 @@ export const fullStackProjects: projectData[] = [
       frontend: "React Native (Expo)",
       backend: "None",
       database: "None",
-      devops: "Gradle"
+      devops: "Gradle",
     },
     link: {
       github: "https://github.com/theakash04/wallhaven",
       // youtube: ""          // (optional) add demo video link
-      apk: "https://drive.google.com/file/d/1lxoUAFoXJuAyaja43Dl9JPNkSwQIFKx1/view?usp=sharing"
+      apk: "https://drive.google.com/file/d/1lxoUAFoXJuAyaja43Dl9JPNkSwQIFKx1/view?usp=sharing",
     },
-    progress: "100%"
+    progress: "100%",
   },
   {
     title: "Recall",
@@ -100,7 +116,7 @@ export const fullStackProjects: projectData[] = [
     link: {
       github: "https://github.com/theakash04/Recall",
       // live: "https://recall.akashtwt.me",
-      youtube: "https://youtu.be/vUdmjR8TZdc"
+      youtube: "https://youtu.be/vUdmjR8TZdc",
     },
     progress: "100%",
   },
