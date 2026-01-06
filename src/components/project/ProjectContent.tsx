@@ -66,9 +66,9 @@ export const fullStackProjects: projectData[] = [
     },
     link: {
       github: "https://github.com/theakash04/Nubilus",
-      live: "https://nubilus-docs.akashtwt.me", // TODO: later change it to nublius.akashtwt.me
+      live: "https://nubilus.akashtwt.me",
     },
-    progress: "60%",
+    progress: "75%",
   },
   {
     title: "Nostr Rewind",
