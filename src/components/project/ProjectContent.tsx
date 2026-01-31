@@ -82,7 +82,7 @@ export const fullStackProjects: projectData[] = [
     },
     link: {
       github: "https://github.com/theakash04/nostr-rewind",
-      live: "https://rewind.akashtwt.me",
+      // live: "https://rewind.akashtwt.me",
     },
     progress: "100%",
   },
