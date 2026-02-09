@@ -12,9 +12,9 @@ export default function About() {
         <div className="flex flex-col items-start">
           <p className="text-[#B4B4B4] font-light">
             I’m Sky, a Developer
-            <br />
-            Developing things that{" "}
-            <span className="text-[#FE6A34] font-semibold">Matters.</span>
+            {/* <br /> */}
+            {/* Developing things that{" "} */}
+            {/* <span className="text-[#FE6A34] font-semibold">Matters.</span> */}
           </p>
         </div>
       </div>
