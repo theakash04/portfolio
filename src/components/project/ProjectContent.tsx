@@ -55,6 +55,22 @@ export const CoreProjects: projectData[] = [
 
 export const fullStackProjects: projectData[] = [
   {
+    title: "Streakstr",
+    description:
+      "A streak-tracking app built on Nostr. It monitors your daily posting activity and turns it into streaks. A bot watches your notes on Nostr relays and updates your streak count automatically — miss a day and your streak resets publicly. Features NIP-07 and NIP-46 authentication, countdown timers, and automated activity monitoring.",
+    tags: {
+      frontend: "Vite",
+      backend: "Fastify",
+      database: "PostgreSQL / Redis",
+      devops: "Docker / BullMQ Workers",
+    },
+    link: {
+      github: "https://github.com/theakash04/Streakstr",
+      live: "https://streakstr.akashtwt.in",
+    },
+    progress: "60%",
+  },
+  {
     title: "Nubilus",
     description:
       "An open-source, self-hosted infrastructure monitoring platform. Track your servers, endpoints, and databases in real-time with a lightweight Rust agent, a robust Node.js backend, and a sleek React dashboard. Features threshold-based alerting, historical trends, and complete control over your data.",
@@ -68,7 +84,7 @@ export const fullStackProjects: projectData[] = [
       github: "https://github.com/theakash04/Nubilus",
       live: "https://nubilus.akashtwt.me",
     },
-    progress: "75%",
+    progress: "95%",
   },
   {
     title: "Nostr Rewind",

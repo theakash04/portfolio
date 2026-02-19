@@ -7,7 +7,7 @@ const SupportPage = () => {
   const [AddressCopied, setAddressCopied] = useState(false);
   const [npubCopied, setNpubCopied] = useState(false);
 
-  const LIGHTNING_ADDRESS = "sky04@coinos.io";
+  const LIGHTNING_ADDRESS = "sky@rizful.com";
   const NPUB_ADDR =
     "npub1zeyh0qu93xtz9u0u5uv643g9lj3a3296rl0d7x2ux5ksejy9x04qsc9x5h";
 
@@ -118,7 +118,10 @@ const SupportPage = () => {
               </p>
               <div
                 className="bg-[#0a0a0a] rounded-lg p-3"
-                onClick={() => copyAddress(NPUB_ADDR, "npub")}
+                onClick={() => {
+                  copyAddress(NPUB_ADDR, "npub")
+                  window.open("https://nostria.app/p/" + NPUB_ADDR);
+                }}
               >
                 <p className="text-xs font-mono text-zinc-400 break-all text-center  hover:text-yellow-300 cursor-pointer">
                   {npubCopied ? "copied" : NPUB_ADDR}
