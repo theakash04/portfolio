@@ -57,7 +57,7 @@ export const fullStackProjects: projectData[] = [
   {
     title: "Streakstr",
     description:
-      "A streak-tracking app built on Nostr. It monitors your daily posting activity and turns it into streaks. A bot watches your notes on Nostr relays and updates your streak count automatically — miss a day and your streak resets publicly. Features NIP-07 and NIP-46 authentication, countdown timers, and automated activity monitoring.",
+      "A streak-tracking app built on Nostr. It monitors your daily posting activity and turns it into streaks. A bot watches your notes on Nostr relays and updates your streak count automatically — miss a day and your streak breaks publicly. Features NIP-07 and NIP-46 authentication, countdown timers, and automated activity monitoring.",
     tags: {
       frontend: "Vite",
       backend: "Fastify",
@@ -66,9 +66,9 @@ export const fullStackProjects: projectData[] = [
     },
     link: {
       github: "https://github.com/theakash04/Streakstr",
-      live: "https://streakstr.akashtwt.in",
+      live: "https://streakstr.online",
     },
-    progress: "60%",
+    progress: "100%",
   },
   {
     title: "Nubilus",
