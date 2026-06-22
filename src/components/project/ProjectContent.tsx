@@ -82,7 +82,7 @@ export const fullStackProjects: projectData[] = [
     },
     link: {
       github: "https://github.com/theakash04/Nubilus",
-      live: "https://nubilus.akashtwt.me",
+      live: "https://nubilus.akashtwt.in",
     },
     progress: "95%",
   },
