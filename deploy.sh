@@ -10,3 +10,4 @@ git reset --hard "origin/$BRANCH"
 docker compose up -d --build --remove-orphans
 
 docker image prune -f
+echo "Build Successfully"
