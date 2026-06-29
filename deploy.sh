@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 
-set -e
+set -Eeuo pipefail
 
-echo "pull latest code"
-git fetch origin master
-git pull origin master
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-echo "rebuild and restart container"
-docker compose up -d --build 
+git fetch origin "$BRANCH"
+git reset --hard "origin/$BRANCH"
 
-echo "reload caddy"
-sudo systemctl reload caddy
+docker compose up -d --build --remove-orphans
 
-echo "deploy complete"
+docker image prune -f
