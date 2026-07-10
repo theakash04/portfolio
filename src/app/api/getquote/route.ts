@@ -1,65 +1,46 @@
 // app/api/getquote/route.ts
-import { GoogleGenAI } from "@google/genai";
+import { mistral } from "@ai-sdk/mistral";
+import { generateText, Output } from "ai";
+import { z } from "zod";
 import { NextResponse } from "next/server";
 
+const QuoteSchema = z.object({
+  quote: z.string(),
+  author: z.string(),
+});
+
 export async function GET() {
-  const apiKey = process.env.GOOGLE_API_KEY;
-
-  if (!apiKey) {
-    throw new Error();
-  }
-
-  const genAI = new GoogleGenAI({ apiKey });
-
   try {
-    const prompt = `
-      Write a short, clever quote about software developers or software engineering.
+    const { output } = await generateText({
+      model: mistral("mistral-small-latest"),
 
-      Make it:
-      - Funny, but still true.
-      - Something suitable for a sticker, tweet, or T-shirt.
-      - A bit cheeky but relatable to developers.
+      output: Output.object({
+        schema: QuoteSchema,
+      }),
 
-      Ensure the response is in the following exact JSON format:
+      prompt: `
+Generate exactly one original quote about software engineering, programming, or developers.
 
-      {
-        "quote": "Your quote goes here",
-        "author": "Author's name goes here"
-      }
+Requirements:
+- The quote must be completely original.
+- Maximum 20 words.
+- Make it insightful, memorable, and relatable.
+- It may be humorous, thoughtful, motivational, or lightly sarcastic.
+- Avoid clichés and overused programming jokes.
+- Do not imitate or paraphrase famous quotes.
+- Use a fictional but realistic author name.
 
-      Do NOT include any extra explanation, markdown, or additional text — only the quote and author in the exact JSON format shown above.
-      `;
-
-    const response = await genAI.models.generateContent({
-      model: "gemini-1.5-flash",
-      contents: prompt,
+Return only the structured object requested by the schema.
+      `,
     });
 
-    if (response.text) {
-      const cleanedResponse = response.text
-        .replace(/^```json\s*|\s*```$/g, "")
-        .trim()
-        .replace(/`{3}$/g, "")
-        .trim();
+    return NextResponse.json(output);
+  } catch (error) {
+    console.error(error);
 
-      const aiResponse = JSON.parse(cleanedResponse);
-      // Check if the response has the expected structure
-      if (!aiResponse.quote || !aiResponse.author) {
-        throw new Error("Invalid response structure from AI");
-      }
-
-      // Return the quote and author
-      return NextResponse.json(aiResponse);
-    }
-
-    throw new Error();
-  } catch {
-    return NextResponse.json(
-      {
-        quote: "In code we trust, but tests we must.",
-        author: "Alex Debugsson",
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({
+      quote: "Great software begins with clear thinking, not clever code.",
+      author: "Ethan Brooks",
+    });
   }
 }

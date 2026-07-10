@@ -23,9 +23,6 @@ export default function Footer() {
             Email
           </a>
         </p>
-        <p className="text-xs text-zinc-600">
-          Built with care · <span className="text-zinc-500">2025</span>
-        </p>
       </div>
     </RevealSection>
   );
