@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sky — Developer</title>
+  <meta name="description" content="Sky — Developer crafting full-stack experiences." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            ink: {
+              950: '#06070A',
+              900: '#0B0C10',
+              850: '#0F1015',
+              800: '#15161C',
+              700: '#22232B',
+              600: '#2C2D36',
+            },
+            accent: {
+              50:  '#FFF1EA',
+              100: '#FFD9C4',
+              200: '#FFB58A',
+              300: '#FF9259',
+              400: '#FF7E3D',
+              500: '#FF6B35',
+              600: '#E5551E',
+            },
+          },
+          animation: {
+            'pulse-slow': 'pulseSlow 2.4s ease-in-out infinite',
+            'ping-slow':  'ping 2.2s cubic-bezier(0,0,.2,1) infinite',
+          },
+          keyframes: {
+            pulseSlow: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%':      { opacity: '.55', transform: 'scale(1.2)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html, body {
+      background: #06070A;
+      color: #FAFAFA;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ===== Background layers ===== */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 95%);
+              mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 95%);
+    }
+    .hero-glow {
+      background:
+        radial-gradient(ellipse 700px 360px at 50% 0%,   rgba(255,107,53,0.10), transparent 65%),
+        radial-gradient(ellipse 500px 260px at 88% 12%,  rgba(106,176,243,0.06), transparent 60%);
+    }
+    .vignette {
+      background: radial-gradient(ellipse 100% 100% at 50% 40%, transparent 50%, rgba(0,0,0,0.55) 100%);
+    }
+
+    /* ===== Card surface ===== */
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(21,22,28,0.82) 0%, rgba(11,12,16,0.82) 100%);
+      border: 1px solid rgba(34,35,43,0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+    }
+    .card:hover { border-color: rgba(60,61,72,1); }
+
+    /* ===== Code window chrome ===== */
+    .window-chrome {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(34,35,43,0.7);
+      background: rgba(11,12,16,0.55);
+    }
+    .window-dot { width: 10px; height: 10px; border-radius: 999px; background: #2C2D36; }
+    .window-dot.r { background: #FF6B35; box-shadow: 0 0 8px rgba(255,107,53,0.4); }
+
+    /* ===== Eyebrow label ===== */
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #FF6B35; font-weight: 600;
+    }
+
+    /* ===== Status row (Now section) ===== */
+    .status-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all .2s ease;
+    }
+    .status-row:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.10);
+    }
+    .status-row.active {
+      background: rgba(255,107,53,0.08);
+      border-color: rgba(255,107,53,0.28);
+    }
+
+    /* ===== Stat card (Numbers section) ===== */
+    .stat-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(180deg, transparent, #FF6B35, transparent);
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(255,107,53,0.30);
+      background: rgba(255,107,53,0.04);
+    }
+    .stat-card:hover::before { opacity: 1; }
+    .stat-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,107,53,0.05));
+      border: 1px solid rgba(255,107,53,0.25);
+      color: #FF9259;
+      flex-shrink: 0;
+    }
+
+    /* ===== Stack: tree-style grouped techs ===== */
+    .stack-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    @media (min-width: 640px) {
+      .stack-row { flex-wrap: nowrap; }
+    }
+    .stack-row + .stack-row { margin-top: 6px; }
+    .stack-prefix {
+      color: #3F3F46;
+      font-family: 'JetBrains Mono', monospace;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .stack-folder {
+      color: #D4D4D8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      flex-shrink: 0;
+    }
+    .stack-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tech-chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 9px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #D4D4D8;
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+      transition: all .2s ease;
+    }
+    .tech-chip:hover {
+      background: rgba(255,107,53,0.08);
+      border-color: rgba(255,107,53,0.25);
+      color: #FFB58A;
+    }
+
+    /* ===== Social icon button ===== */
+    .social-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #A1A1AA;
+      transition: all .2s ease;
+    }
+    .social-btn:hover {
+      background: rgba(255,107,53,0.10);
+      border-color: rgba(255,107,53,0.30);
+      color: #FF9259;
+      transform: translateY(-1px);
+    }
+
+    /* ===== Tag chip ===== */
+    .tag {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px; font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #A1A1AA;
+      transition: all .2s ease;
+    }
+    .tag:hover {
+      background: rgba(255,107,53,0.10);
+      border-color: rgba(255,107,53,0.25);
+      color: #FFB58A;
+    }
+
+    /* ===== Filter pill ===== */
+    .filter-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px; font-weight: 500;
+      color: #A1A1AA;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all .2s ease;
+      cursor: pointer;
+    }
+    .filter-btn:hover { color: #FAFAFA; border-color: rgba(255,255,255,0.18); }
+    .filter-btn.active {
+      background: #FAFAFA; color: #06070A; border-color: #FAFAFA;
+    }
+
+    /* ===== Timeline (experience) ===== */
+    .timeline-line {
+      background: linear-gradient(180deg, rgba(255,107,53,0.55) 0%, rgba(255,107,53,0.04) 100%);
+    }
+    .timeline-dot {
+      background: #FF6B35;
+      box-shadow:
+        0 0 0 4px rgba(255,107,53,0.18),
+        0 0 18px rgba(255,107,53,0.55);
+    }
+
+    /* ===== Project cover gradients ===== */
+    .cover-1 { background: linear-gradient(135deg, #FF6B35 0%, #6AB0F3 100%); }
+    .cover-2 { background: linear-gradient(135deg, #2C2D36 0%, #FF6B35 100%); }
+    .cover-3 { background: linear-gradient(135deg, #6AB0F3 0%, #FFB58A 100%); }
+    .cover-4 { background: linear-gradient(135deg, #1B1C23 0%, #6AB0F3 100%); }
+    .cover-5 { background: linear-gradient(135deg, #FF9259 0%, #22232B 100%); }
+    .cover-6 { background: linear-gradient(135deg, #FF6B35 0%, #1B1C23 100%); }
+    .project-cover { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+    .project-cover::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.18) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: .35;
+    }
+    .project-cover::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(6,7,10,0.55) 100%);
+    }
+    .project-cover-label {
+      position: absolute; bottom: 10px; left: 14px; right: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      z-index: 1;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .project-card { transition: all .3s cubic-bezier(.4,0,.2,1); }
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,107,53,0.40);
+      box-shadow: 0 18px 50px -18px rgba(255,107,53,0.22);
+    }
+    .project-card:hover .pc-arrow { transform: translate(2px,-2px); color: #FF9259; }
+    .project-card:hover .pc-title { color: #FF9259; }
+    .pc-arrow, .pc-title { transition: color .25s ease, transform .25s ease; }
+
+    /* ===== Quote corner dots ===== */
+    .corner-dot {
+      width: 8px; height: 8px; border-radius: 999px;
+      background: #34D399;
+      box-shadow: 0 0 0 4px rgba(52,211,153,0.12);
+    }
+
+    /* ===== Scroll-fade in ===== */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: .05s; }
+    .reveal-d2 { transition-delay: .10s; }
+    .reveal-d3 { transition-delay: .15s; }
+    .reveal-d4 { transition-delay: .20s; }
+
+    /* ===== Custom scrollbar ===== */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #0B0C10; }
+    ::-webkit-scrollbar-thumb { background: #22232B; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2C2D36; }
+    ::selection { background: rgba(255,107,53,0.30); color: #FAFAFA; }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <div class="min-h-screen relative overflow-x-hidden">
+
+    <!-- 3D wireframe background -->
+    <canvas id="bg" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index: 0;"></canvas>
+    <div class="fixed inset-0 grid-bg pointer-events-none" style="z-index: 1;"></div>
+    <div class="fixed inset-0 hero-glow pointer-events-none" style="z-index: 2;"></div>
+    <div class="fixed inset-0 vignette pointer-events-none" style="z-index: 3;"></div>
+
+    <main class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-5 sm:space-y-6" style="z-index: 10;">
+
+      <!-- ============== HERO PROFILE ============== -->
+      <section class="reveal">
+        <div class="card rounded-3xl p-6 sm:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+
+            <div class="flex items-center gap-5 sm:gap-6">
+              <div class="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24">
+                <div class="absolute -inset-2 bg-gradient-to-br from-accent-500/30 to-blue-400/10 rounded-3xl blur-xl"></div>
+                <div class="relative w-full h-full rounded-2xl overflow-hidden ring-1 ring-white/10 bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=240&h=240&fit=crop&crop=faces"
+                    alt="Sky"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <span class="hidden text-3xl font-bold text-zinc-400">S</span>
+                </div>
+                <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 bg-emerald-500 rounded-full ring-4 ring-ink-950 animate-pulse-slow"></div>
+              </div>
+
+              <div class="lg:hidden min-w-0">
+                <h1 class="text-3xl font-bold tracking-tight leading-none">Sky</h1>
+                <p class="text-zinc-400 mt-1.5 text-sm">Developer · Hybrid</p>
+              </div>
+            </div>
+
+            <div class="hidden lg:block flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h1 class="text-4xl xl:text-5xl font-bold tracking-tight leading-none">Sky</h1>
+                <span class="text-zinc-600 text-sm font-mono">/skaɪ/</span>
+              </div>
+              <p class="mt-3 text-zinc-400 text-base max-w-xl">
+                Developer crafting <span class="text-zinc-100 font-medium">full-stack experiences</span> with care for the details.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <a href="https://github.com/theakash04" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-btn">
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="https://x.com/theakash04" target="_blank" rel="noopener noreferrer" title="X" class="social-btn">
+                <svg class="w-[16px] h-[16px]" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+              </a>
+              <a href="/zapme" title="Support me" class="social-btn">
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></svg>
+              </a>
+
+              <span class="hidden sm:block w-px h-7 bg-white/10 mx-1"></span>
+              <span class="hidden sm:inline-flex items-center gap-2 text-xs text-zinc-400 px-2">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse-slow"></span>
+                Available
+              </span>
+            </div>
+
+            <div class="lg:hidden flex items-center gap-3 text-xs text-zinc-500">
+              <span class="inline-flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse-slow"></span>
+                Available for work
+              </span>
+              <span class="text-zinc-700">·</span>
+              <span>Hybrid · India</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== BENTO 1: About + Now ============== -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal reveal-d1">
+
+        <!-- About -->
+        <div class="md:col-span-2 card rounded-2xl overflow-hidden">
+          <div class="window-chrome">
+            <div class="flex items-center gap-1.5">
+              <div class="window-dot"></div>
+              <div class="window-dot"></div>
+              <div class="window-dot r"></div>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500">~/about.md</span>
+          </div>
+
+          <div class="p-6 sm:p-7">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="eyebrow">01 · About</span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-semibold text-zinc-100 leading-snug tracking-tight">
+              Building software that
+              <span class="bg-gradient-to-br from-accent-300 via-accent-500 to-accent-600 bg-clip-text text-transparent"> actually works.</span>
+            </h2>
+
+            <p class="mt-4 text-zinc-400 leading-relaxed">
+              I'm Sky, a developer with a focus on shipping well-crafted, end-to-end products. I work across the stack — from crafting interfaces in React to designing APIs and database schemas in Node and PostgreSQL.
+            </p>
+            <p class="mt-3 text-zinc-400 leading-relaxed">
+              Currently interning as a Frontend Developer at <span class="text-zinc-200 font-medium">PyxisBlu Solutions</span>, contributing to production-grade applications throughout the SDLC.
+            </p>
+          </div>
+        </div>
+
+        <!-- Now -->
+        <div class="card rounded-2xl p-6 sm:p-7 flex flex-col">
+          <div class="flex items-center justify-between mb-5">
+            <span class="eyebrow">02 · Now</span>
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-accent-500 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
+            </span>
+          </div>
+
+          <div class="space-y-2 flex-1">
+            <div class="status-row active">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-500 shrink-0 shadow-[0_0_8px_rgba(255,107,53,0.6)]"></span>
+                <span class="text-sm text-zinc-100 truncate">Building side projects</span>
+              </div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-accent-500 shrink-0">now</span>
+            </div>
+
+            <div class="status-row">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 shrink-0"></span>
+                <span class="text-sm text-zinc-300 truncate">Learning system design</span>
+              </div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-zinc-500 shrink-0">later</span>
+            </div>
+
+            <div class="status-row">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 shrink-0"></span>
+                <span class="text-sm text-zinc-300 truncate">Reading DDIA</span>
+              </div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-zinc-500 shrink-0">today</span>
+            </div>
+
+            <div class="status-row">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-sm text-zinc-300 truncate">Open to opportunities</span>
+              </div>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-500 shrink-0">open</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== BENTO 2: Numbers + Stack (grouped) ============== -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal reveal-d2">
+
+        <!-- Numbers -->
+        <div class="card rounded-2xl p-6 sm:p-7">
+          <div class="flex items-center gap-2 mb-5">
+            <span class="eyebrow">03 · Stats</span>
+          </div>
+
+          <div class="space-y-2.5">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="text-2xl font-bold text-zinc-100 leading-none">1<span class="text-accent-500">+</span></div>
+                <div class="text-[10px] text-zinc-500 uppercase tracking-wider font-medium mt-1.5">Year Experience</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="text-2xl font-bold text-zinc-100 leading-none">10<span class="text-accent-500">+</span></div>
+                <div class="text-[10px] text-zinc-500 uppercase tracking-wider font-medium mt-1.5">Personal Projects</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-5 pt-4 border-t border-zinc-800/50 text-[10.5px] text-zinc-500 leading-relaxed">
+            <span class="text-accent-500">*</span> Personal projects are built in my own time — not professional work.
+          </p>
+        </div>
+
+        <!-- Stack (grouped) -->
+        <div class="md:col-span-2 card rounded-2xl p-6 sm:p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="eyebrow">04 · Stack</span>
+            <span class="text-[10px] font-mono text-zinc-600 hidden sm:inline">~/stack/</span>
+          </div>
+
+          <div>
+            <div class="stack-row">
+              <span class="stack-prefix">├──</span>
+              <span class="stack-folder sm:w-24">frontend/</span>
+              <div class="stack-chips">
+                <span class="tech-chip">React</span>
+                <span class="tech-chip">Next.js</span>
+                <span class="tech-chip">Tailwind</span>
+              </div>
+            </div>
+
+            <div class="stack-row">
+              <span class="stack-prefix">├──</span>
+              <span class="stack-folder sm:w-24">backend/</span>
+              <div class="stack-chips">
+                <span class="tech-chip">Node.js</span>
+                <span class="tech-chip">Express</span>
+                <span class="tech-chip">PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="stack-row">
+              <span class="stack-prefix">├──</span>
+              <span class="stack-folder sm:w-24">language/</span>
+              <div class="stack-chips">
+                <span class="tech-chip">TypeScript</span>
+              </div>
+            </div>
+
+            <div class="stack-row">
+              <span class="stack-prefix">└──</span>
+              <span class="stack-folder sm:w-24">tools/</span>
+              <div class="stack-chips">
+                <span class="tech-chip">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== EXPERIENCE ============== -->
+      <section class="reveal reveal-d3">
+        <div class="flex items-baseline gap-3 mb-5">
+          <span class="eyebrow">05</span>
+          <h2 class="text-xl font-semibold text-zinc-100 tracking-tight">Experience</h2>
+        </div>
+
+        <div class="card rounded-2xl p-6 sm:p-8">
+          <div class="relative pl-8 sm:pl-10">
+            <div class="absolute left-2 sm:left-3 top-2 bottom-2 w-px timeline-line"></div>
+            <div class="absolute left-0 sm:left-1 top-2 w-4 h-4 rounded-full timeline-dot ring-4 ring-ink-900"></div>
+
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <div class="min-w-0">
+                <div class="flex items-center gap-2.5 flex-wrap">
+                  <h3 class="text-lg sm:text-xl font-semibold text-zinc-100">Frontend Developer</h3>
+                  <span class="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-accent-500 bg-accent-500/10 border border-accent-500/20 rounded-full px-2 py-0.5">
+                    <span class="w-1 h-1 rounded-full bg-accent-500"></span> Current
+                  </span>
+                </div>
+                <p class="text-sm text-zinc-400 mt-1">
+                  <span class="text-zinc-200 font-medium">PyxisBlu Solutions Pvt. Ltd.</span>
+                  <span class="text-zinc-600 mx-1.5">·</span>
+                  Internship
+                  <span class="text-zinc-600 mx-1.5">·</span>
+                  Hybrid
+                </p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.07] rounded-full px-3 py-1 shrink-0">
+                Jul 2025 — Jun 2026
+              </span>
+            </div>
+
+            <ul class="mt-6 grid sm:grid-cols-2 gap-x-7 gap-y-3">
+              <li class="flex gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span class="text-accent-500 mt-0.5 shrink-0 font-mono">▹</span>
+                Developed and maintained full-stack web applications using Next.js, TypeScript, Node.js, Express, and PostgreSQL.
+              </li>
+              <li class="flex gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span class="text-accent-500 mt-0.5 shrink-0 font-mono">▹</span>
+                Designed and implemented REST APIs, business logic, and database schemas for production applications.
+              </li>
+              <li class="flex gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span class="text-accent-500 mt-0.5 shrink-0 font-mono">▹</span>
+                Built responsive dashboards, reusable UI components, and feature-rich interfaces.
+              </li>
+              <li class="flex gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span class="text-accent-500 mt-0.5 shrink-0 font-mono">▹</span>
+                Integrated authentication, RBAC authorization, payment gateways, file storage, and third-party APIs.
+              </li>
+              <li class="flex gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span class="text-accent-500 mt-0.5 shrink-0 font-mono">▹</span>
+                Collaborated with cross-functional teams to translate business requirements into scalable solutions.
+              </li>
+              <li class="flex gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span class="text-accent-500 mt-0.5 shrink-0 font-mono">▹</span>
+                Optimized application performance and resolved production issues across the SDLC.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== PROJECTS (tagged as personal) ============== -->
+      <section class="reveal reveal-d4">
+        <div class="flex flex-wrap items-baseline justify-between gap-3 mb-2">
+          <div class="flex items-baseline gap-3 flex-wrap">
+            <span class="eyebrow">06</span>
+            <h2 class="text-xl font-semibold text-zinc-100 tracking-tight">Projects</h2>
+            <span class="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-500/10 border border-zinc-700/50 rounded-full px-2 py-0.5">
+              <span class="w-1 h-1 rounded-full bg-zinc-500"></span> personal
+            </span>
+          </div>
+          <div class="flex items-center gap-1.5" id="projectFilters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+            <button class="filter-btn" data-filter="core">Core</button>
+          </div>
+        </div>
+
+        <p class="text-sm text-zinc-400 mb-5 max-w-2xl">
+          Side projects I've built in my own time — exploring ideas and tech outside of work.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="projectsGrid">
+          <!-- rendered by JS -->
+        </div>
+      </section>
+
+      <!-- ============== QUOTE ============== -->
+      <section class="reveal">
+        <div class="relative max-w-3xl mx-auto rounded-2xl border border-dashed border-zinc-800 bg-ink-900/40 px-5 sm:px-10 py-10 sm:py-12">
+          <div class="absolute left-0 right-0 top-3 h-px bg-zinc-800/80"></div>
+          <div class="absolute left-0 right-0 bottom-3 h-px bg-zinc-800/80"></div>
+
+          <div class="relative sm:-mx-5">
+            <div class="absolute -left-1.5 top-0 corner-dot -translate-y-1/2"></div>
+            <div class="absolute -right-1.5 top-0 corner-dot -translate-y-1/2"></div>
+            <div class="absolute -left-1.5 bottom-0 corner-dot translate-y-1/2"></div>
+            <div class="absolute -right-1.5 bottom-0 corner-dot translate-y-1/2"></div>
+
+            <div class="text-center py-2 px-4 sm:px-6">
+              <p class="text-[10px] font-mono uppercase tracking-[0.25em] text-emerald-500 mb-5">Quote of the day</p>
+              <p class="text-lg sm:text-xl text-zinc-200 leading-relaxed font-light italic">
+                "The best way to predict the future is to invent it. Really smart people with reasonable funding can do just about anything that doesn't violate too many of Newton's Laws."
+              </p>
+              <p class="mt-5 text-sm text-zinc-500">— Alan Kay</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== FOOTER ============== -->
+      <footer class="reveal pt-4 pb-2 text-center text-xs text-zinc-600">
+        <p>Built with care · <span class="text-zinc-500">2025</span></p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    /* ======================================================
+       3D wireframe background
+       ====================================================== */
+    (function initBackground() {
+      const canvas = document.getElementById('bg');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+      let W = 0, H = 0;
+
+      function resize() {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width = W * DPR;
+        canvas.height = H * DPR;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const FOCAL = 720;
+      function project(x, y, z, horizonY) {
+        const f = FOCAL / (FOCAL + z);
+        return { x: W / 2 + x * f, y: horizonY + y * f, f };
+      }
+      function rotY(p, a) { const c=Math.cos(a), s=Math.sin(a); return { x: p.x*c-p.z*s, y: p.y, z: p.x*s+p.z*c }; }
+      function rotX(p, a) { const c=Math.cos(a), s=Math.sin(a); return { x: p.x, y: p.y*c-p.z*s, z: p.y*s+p.z*c }; }
+
+      const CUBE_V = [
+        [-1,-1,-1], [ 1,-1,-1], [ 1, 1,-1], [-1, 1,-1],
+        [-1,-1, 1], [ 1,-1, 1], [ 1, 1, 1], [-1, 1, 1],
+      ];
+      const CUBE_E = [
+        [0,1],[1,2],[2,3],[3,0],
+        [4,5],[5,6],[6,7],[7,4],
+        [0,4],[1,5],[2,6],[3,7],
+      ];
+
+      const isMobile = window.innerWidth < 768;
+      const cubes = [];
+      const N = isMobile ? 4 : 7;
+      for (let i = 0; i < N; i++) {
+        cubes.push({
+          ox: (Math.random() - 0.5) * 900,
+          oy: (Math.random() - 0.5) * 500 - 50,
+          oz: Math.random() * 700 + 150,
+          size: 22 + Math.random() * 32,
+          rx: Math.random() * Math.PI * 2,
+          ry: Math.random() * Math.PI * 2,
+          srx: (Math.random() - 0.5) * 0.0035,
+          sry: (Math.random() - 0.5) * 0.0035,
+          alpha: 0.07 + Math.random() * 0.10,
+          driftX: (Math.random() - 0.5) * 0.08,
+          driftY: (Math.random() - 0.5) * 0.05,
+        });
+      }
+
+      function drawCube(c) {
+        const pts = CUBE_V.map(([x, y, z]) => {
+          let p = { x: x * c.size, y: y * c.size, z: z * c.size };
+          p = rotY(p, c.ry);
+          p = rotX(p, c.rx);
+          return project(p.x + c.ox, p.y + c.oy, p.z + c.oz, H * 0.45);
+        });
+        ctx.strokeStyle = `rgba(255, 107, 53, ${c.alpha})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        CUBE_E.forEach(([a, b]) => {
+          ctx.moveTo(pts[a].x, pts[a].y);
+          ctx.lineTo(pts[b].x, pts[b].y);
+        });
+        ctx.stroke();
+        ctx.fillStyle = `rgba(255, 107, 53, ${Math.min(c.alpha * 2, 0.4)})`;
+        pts.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      }
+
+      function drawGrid() {
+        const FLOOR_Y = 240;
+        const HSTEP = 90;
+        const ZSTEP = 80;
+        const RANGE_X = 14;
+        const RANGE_Z = 22;
+        const baseAlpha = 0.10;
+        for (let i = -RANGE_X; i <= RANGE_X; i++) {
+          for (let j = 1; j <= RANGE_Z; j++) {
+            const x = i * HSTEP;
+            const z = j * ZSTEP;
+            const p = project(x, FLOOR_Y, z, H * 0.45);
+            const fade = 1 - (j / RANGE_Z);
+            ctx.fillStyle = `rgba(255, 255, 255, ${baseAlpha * fade * 0.6})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        ctx.fillStyle = 'rgba(255, 107, 53, 0.20)';
+        for (let i = -RANGE_X * 2; i <= RANGE_X * 2; i++) {
+          const x = i * (HSTEP / 2);
+          const z = 40;
+          const p = project(x, FLOOR_Y, z, H * 0.45);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      let running = true;
+      function animate() {
+        if (!running) return;
+        ctx.clearRect(0, 0, W, H);
+        cubes.sort((a, b) => b.oz - a.oz);
+        drawGrid();
+        cubes.forEach(c => {
+          c.rx += c.srx;
+          c.ry += c.sry;
+          c.ox += c.driftX;
+          c.oy += c.driftY;
+          if (c.ox >  550) c.ox = -550;
+          if (c.ox < -550) c.ox =  550;
+          if (c.oy >  350) c.oy = -350;
+          if (c.oy < -350) c.oy =  350;
+          drawCube(c);
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { running = false; }
+        else if (!running) { running = true; animate(); }
+      });
+    })();
+
+    /* ======================================================
+       Projects
+       ====================================================== */
+    const projects = [
+      { title: 'Chamber',  category: 'fullstack', description: 'Real-time messaging platform with end-to-end encryption, channels, and file sharing.', tags: ['Next.js', 'WebSockets', 'PostgreSQL', 'Prisma'], cover: 'cover-1', label: '01 / Messaging', link: '#' },
+      { title: 'Cipher',   category: 'fullstack', description: 'End-to-end encrypted notes vault with client-side AES-256 encryption.',             tags: ['TypeScript', 'Node.js', 'AES-256', 'React'],     cover: 'cover-2', label: '02 / Security',  link: '#' },
+      { title: 'Lumen UI', category: 'core',      description: 'Accessible component library built on Radix primitives with full TypeScript support.', tags: ['React', 'Storybook', 'TypeScript', 'Radix'], cover: 'cover-3', label: '03 / Library',   link: '#' },
+      { title: 'Drift',    category: 'fullstack', description: 'Collaborative whiteboard powered by CRDTs for conflict-free real-time editing.',   tags: ['Next.js', 'Yjs', 'CRDT', 'Tailwind'],           cover: 'cover-4', label: '04 / Realtime',  link: '#' },
+      { title: 'Mesh',     category: 'core',      description: 'Serverless deployment CLI that provisions Docker containers to AWS Lambda.',     tags: ['Node.js', 'Docker', 'AWS', 'TypeScript'],       cover: 'cover-5', label: '05 / DevTools',  link: '#' },
+      { title: 'Pulse',    category: 'core',      description: 'Habit tracker with streak analytics, charts, and offline-first storage.',         tags: ['React Native', 'Expo', 'SQLite', 'D3'],         cover: 'cover-6', label: '06 / Mobile',    link: '#' },
+    ];
+
+    function renderProjects(filter = 'all') {
+      const grid = document.getElementById('projectsGrid');
+      const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+      grid.innerHTML = filtered.map(p => `
+        <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-card card rounded-2xl overflow-hidden block group">
+          <div class="project-cover ${p.cover}">
+            <div class="project-cover-label">
+              <span>${p.label}</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="pc-title text-base font-semibold text-zinc-100">${p.title}</h3>
+              <svg class="pc-arrow w-4 h-4 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </div>
+            <p class="text-sm text-zinc-400 leading-relaxed line-clamp-2">${p.description}</p>
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+    renderProjects();
+
+    document.querySelectorAll('#projectFilters .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#projectFilters .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProjects(btn.dataset.filter);
+      });
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

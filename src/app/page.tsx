@@ -1,17 +1,39 @@
-// import AnnouncementBanner from "@/components/AnnouncementBanner";
-import MainSection from "@/components/MainSection";
+import BackgroundCanvas from "@/components/BackgroundCanvas";
+import HeroProfile from "@/components/HeroProfile";
+import AboutCard from "@/components/AboutCard";
+import StatsCard from "@/components/StatsCard";
+import StackCard from "@/components/StackCard";
+import ExperienceSection from "@/components/ExperienceSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import QuoteSection from "@/components/QuoteSection";
+import Footer from "@/components/Footer";
+import RevealSection from "@/components/RevealSection";
 
 export default function Home() {
   return (
-    <main className="px-6 md:px-0 md:max-w-screen-md md:mx-auto py-16 md:py-24 relative">
-      {/* <AnnouncementBanner */}
-      {/*   title="Recall - AI-Powered Smart Bookmarks" */}
-      {/*   description="Save any URL and instantly search through content with lightning-fast intelligent search." */}
-      {/*   linkText="Try Recall" */}
-      {/*   link="https://recall.akashtwt.me" */}
-      {/*   type="info" */}
-      {/* /> */}
-      <MainSection />
-    </main>
+    <div className="min-h-screen relative overflow-x-hidden">
+      <BackgroundCanvas />
+
+      <main
+        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-5 sm:space-y-6"
+        style={{ zIndex: 10 }}
+      >
+        <HeroProfile />
+
+        <RevealSection delay={1}>
+          <AboutCard />
+        </RevealSection>
+
+        <RevealSection delay={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <StatsCard />
+          <StackCard />
+        </RevealSection>
+
+        <ExperienceSection />
+        <ProjectsSection />
+        <QuoteSection />
+        <Footer />
+      </main>
+    </div>
   );
 }

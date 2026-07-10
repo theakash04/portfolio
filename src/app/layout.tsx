@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "SKY",
+  title: "Sky — Developer",
   description:
-    "Explore theakash04 portfolio, showcasing expertise in modern web technologies and scalable solutions.",
+    "Sky — Developer crafting full-stack experiences with care for the details.",
 };
 
 export default function RootLayout({
@@ -22,10 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased `}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
