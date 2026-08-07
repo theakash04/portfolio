@@ -11,7 +11,7 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: "Frontend Developer",
+    role: "Software Developer",
     company: "PyxisBlu Solutions Pvt. Ltd.",
     type: "Internship",
     location: "Hybrid",
@@ -26,5 +26,15 @@ export const experiences: Experience[] = [
       "Collaborated with cross-functional teams to translate business requirements into scalable solutions.",
       "Optimized application performance and resolved production issues across the SDLC.",
     ],
+  },
+  {
+    role: "Software Developer",
+    company: "PyxisBlu Solutions Pvt. Ltd.",
+    type: "Full-time",
+    location: "In-office",
+    startDate: "Jul 2026",
+    endDate: "Present",
+    isCurrent: true,
+    points: [],
   },
 ];
