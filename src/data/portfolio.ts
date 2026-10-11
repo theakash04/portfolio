@@ -232,7 +232,7 @@ export const stack = [
   { folder: 'frontend/', items: ['React.js', 'Next.js', 'Tailwind CSS'] },
   { folder: 'backend/', items: ['Node.js', 'Express.js', 'FastAPI', 'Fastify'] },
   { folder: 'languages/', items: ['TypeScript', 'Python', 'Go'] },
-  { folder: 'databases/', items: ['SQL', 'NoSQL'] },
+  { folder: 'databases/', items: ['postgreSQL', 'mongodb', 'sqlite'] },
   { folder: 'devops/', items: ['Docker', 'Jenkins'] },
   { folder: 'tools/', items: ['Git', 'Jest'] },
 ];
@@ -242,7 +242,7 @@ export const experience = [
     role: 'Software Developer',
     company: 'PyxisBlu Solutions Pvt. Ltd.',
     type: 'Full-time',
-    mode: 'In-office',
+    mode: 'on-site',
     period: 'Jul 2026 — Present',
     current: true,
     bullets: [] as string[],
