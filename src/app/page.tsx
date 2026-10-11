@@ -1,39 +1,30 @@
-import BackgroundCanvas from "@/components/BackgroundCanvas";
-import HeroProfile from "@/components/HeroProfile";
-import AboutCard from "@/components/AboutCard";
-import StatsCard from "@/components/StatsCard";
-import StackCard from "@/components/StackCard";
-import ExperienceSection from "@/components/ExperienceSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import QuoteSection from "@/components/QuoteSection";
-import Footer from "@/components/Footer";
-import RevealSection from "@/components/RevealSection";
+"use client";
+
+import React from "react";
+import { MotionConfig } from "framer-motion";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Projects } from "@/components/Projects";
+import { Stack } from "@/components/Stack";
+import { Experience } from "@/components/Experience";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
-      <BackgroundCanvas />
-
-      <main
-        className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-5 sm:space-y-6"
-        style={{ zIndex: 10 }}
-      >
-        <HeroProfile />
-
-        <RevealSection delay={1}>
-          <AboutCard />
-        </RevealSection>
-
-        <RevealSection delay={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <StatsCard />
-          <StackCard />
-        </RevealSection>
-
-        <ExperienceSection />
-        <ProjectsSection />
-        <QuoteSection />
+    <MotionConfig reducedMotion="user">
+      <div id="top" className="min-h-screen w-full bg-paper">
+        <ScrollProgress />
+        <Hero />
+        <main>
+          <About />
+          <Projects />
+          <Stack />
+          <Experience />
+        </main>
         <Footer />
-      </main>
-    </div>
+      </div>
+    </MotionConfig>
   );
 }
+
