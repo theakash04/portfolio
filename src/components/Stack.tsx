@@ -9,7 +9,7 @@ export function Stack() {
   return (
     <section id="stack" aria-labelledby="stack-title" className="grid-light">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <SectionHeading id="stack-title" number="03" title="stack" path="~/stack/" />
+        <SectionHeading id="stack-title" title="stack" path="~/stack/" />
         <Reveal className="mt-12 bg-ink p-6 text-white md:p-10">
           <p className="mb-8 font-mono text-xs text-white/50">
             <span className="text-lime">$</span> ls -R ~/stack/

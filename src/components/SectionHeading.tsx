@@ -5,14 +5,13 @@ import { motion } from 'framer-motion';
 import { easeOut } from '@/utils/motion';
 
 type SectionHeadingProps = {
-  number: string;
   title: string;
   path?: string;
   dark?: boolean;
   id: string;
 };
 
-export function SectionHeading({ number, title, path, dark = false, id }: SectionHeadingProps) {
+export function SectionHeading({ title, path, dark = false, id }: SectionHeadingProps) {
   return (
     <motion.header
       initial="hidden"
@@ -28,7 +27,7 @@ export function SectionHeading({ number, title, path, dark = false, id }: Sectio
         >
           <span className="flex items-center gap-2">
             <span aria-hidden="true" className="h-2 w-2 bg-lime" />
-            {number} · {title}
+            {title}
           </span>
           {path && <span>{path}</span>}
         </motion.div>
@@ -45,14 +44,6 @@ export function SectionHeading({ number, title, path, dark = false, id }: Sectio
           </motion.span>
         </h2>
       </div>
-      <motion.span
-        aria-hidden="true"
-        variants={{ hidden: { opacity: 0, x: 16 }, visible: { opacity: 1, x: 0 } }}
-        transition={{ duration: 0.3, ease: easeOut, delay: 0.1 }}
-        className={`select-none pb-[0.1em] text-6xl font-extrabold leading-[0.8] tracking-[-0.05em] sm:text-8xl lg:text-[10rem] ${dark ? 'text-outline-ghost-light' : 'text-outline-ghost-dark'}`}
-      >
-        {number}
-      </motion.span>
       <motion.span
         aria-hidden="true"
         variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1 } }}

@@ -46,7 +46,7 @@ export function Projects() {
   return (
     <section id="projects" aria-labelledby="projects-title" className="grid-dark text-white">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <SectionHeading id="projects-title" number="02" title="projects" path="~/projects/" dark />
+        <SectionHeading id="projects-title" title="projects" path="~/projects/" dark />
 
         {/* Filter bar & Control Row */}
         <Reveal delay={0.1} className="mt-8 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
@@ -192,4 +192,3 @@ export function Projects() {
     </section>
   );
 }
-

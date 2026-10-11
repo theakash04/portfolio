@@ -14,7 +14,7 @@ export function Experience() {
   return (
     <section id="experience" aria-labelledby="experience-title" className="bg-ink text-white">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <SectionHeading id="experience-title" number="04" title="experience" dark />
+        <SectionHeading id="experience-title" title="experience" dark />
         <ol ref={listRef} className="relative mt-16 pl-8 md:pl-12">
           <span aria-hidden="true" className="absolute bottom-0 left-0 top-2 w-0.5 bg-white/15" />
           <motion.span
